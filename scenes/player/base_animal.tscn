@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cnsuxf4b8rafs"]
+
+[ext_resource type="Script" uid="uid://jli8atj0vo7" path="res://base_animal.gd" id="1_flofl"]
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_sxi8c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8upip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sxi8c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3owqy"]
+
+[node name="BaseAnimal" type="CharacterBody3D" unique_id=1407618352]
+script = ExtResource("1_flofl")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1981568719]
+transform = Transform3D(0.8660254, -0.17101006, 0.4698463, 0, 0.9396926, 0.34202012, -0.5, -0.2961981, 0.81379765, 0, 0, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals" unique_id=401181971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
+shaded = true
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_8upip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=816112685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3owqy")
