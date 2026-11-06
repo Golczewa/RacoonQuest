@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cwtli00fp1sh3"]
+
+[ext_resource type="PackedScene" uid="uid://cr5880s8ngg05" path="res://scenes/props/glow_test_prop.tscn" id="1_1rr7e"]
+[ext_resource type="PackedScene" uid="uid://cdrgselcsbqtd" path="res://scenes/props/test_prop.tscn" id="2_hr3m1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qr3jv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jn87w"]
+sky_material = SubResource("ProceduralSkyMaterial_qr3jv")
+
+[sub_resource type="Environment" id="Environment_1rr7e"]
+background_mode = 2
+sky = SubResource("Sky_jn87w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr3m1"]
+albedo_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ua2mj"]
+
+[node name="cave" type="Node3D" unique_id=140138137]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=700685870]
+environment = SubResource("Environment_1rr7e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394488590]
+transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+visible = false
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=776243437]
+transform = Transform3D(22.036697, 0, 0, 0, 1, 0, 0, 0, 21.252312, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hr3m1")
+mesh = SubResource("PlaneMesh_ua2mj")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1020712990]
+transform = Transform3D(-0.5372948, -0.40243253, 0.74118984, 0, 0.8788175, 0.4771581, -0.8433945, 0.25637457, -0.47218406, 7.46578, 4.806268, -4.7561665)
+fov = 20.0
+
+[node name="props" type="Node3D" parent="." unique_id=942461530]
+
+[node name="Node3D" parent="props" unique_id=19779640 instance=ExtResource("1_1rr7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5099759, 0.39721513, -0.427567)
+
+[node name="Node3D2" parent="props" unique_id=1341257114 instance=ExtResource("2_hr3m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3339059, 0.38512427, 0.022563696)
