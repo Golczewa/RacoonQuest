@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bbxdsrseofcoe"]
+
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_kdbrx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d3qdn"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_kdbrx"]
+sky_material = SubResource("ProceduralSkyMaterial_d3qdn")
+
+[sub_resource type="Environment" id="Environment_ciecv"]
+background_mode = 2
+sky = SubResource("Sky_kdbrx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jiq1j"]
+
+[node name="Node3D" type="Node3D" unique_id=1447930689]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1741099426]
+environment = SubResource("Environment_ciecv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1574927075]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 3.1518373, -0.23115039)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=46124790]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jiq1j")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1249379450]
+transform = Transform3D(-0.0025790145, -0.41703954, 0.9088847, 0, 0.90888774, 0.41704094, -0.99999666, 0.0010755546, -0.0023440348, 1.6323757, 1.1252618, -0.11614486)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1522501148]
+transform = Transform3D(0.0061140433, 0, 0.9999813, 0, 1, 0, -0.9999813, 0, 0.0061140433, -0.6077881, 0.6813965, 0)
+texture = ExtResource("1_kdbrx")

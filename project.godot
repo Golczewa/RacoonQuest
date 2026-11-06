@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RacoonQuest"
-run/main_scene="uid://6vo1gy3h1ryj"
+run/main_scene="uid://bbxdsrseofcoe"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
