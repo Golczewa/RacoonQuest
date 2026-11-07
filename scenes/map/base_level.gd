@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func next_room()->void:
 	print(":sob:")
-	if(curr_room_num>=rooms.size()):
+	if(curr_room_num+1>=rooms.size()):
 		return
 	print("changing room to",str(curr_room_num+1))
 	curr_room_num+=1

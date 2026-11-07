@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_18nj3"]
 size = Vector3(0.62646484, 1.251831, 0.5576782)
 
-[node name="Node3D" type="StaticBody3D" unique_id=1092872962]
+[node name="Node3D" type="StaticBody3D" unique_id=1092872962 groups=["shotable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724837190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010498047, 0.66875803, -0.023834229)

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dq23tqc7yiy22" path="res://scenes/props/weight_button.tscn" id="5_q3mlr"]
 [ext_resource type="PackedScene" uid="uid://620jrp4k4bt8" path="res://scenes/props/magic_ball.tscn" id="6_bpvy7"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="7_njtbm"]
+[ext_resource type="Script" uid="uid://cdkst6hryimas" path="res://scenes/props/magic_ball.gd" id="8_j35h0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_is4nn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,8 +30,13 @@ albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch0j"]
 size = Vector3(95.673, 1, 106.61083)
 
-[node name="Node3D" type="Node3D" unique_id=719626189]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u4yaw"]
+size = Vector3(3.3127441, 2.0805664, 13.045288)
+
+[node name="Node3D" type="Node3D" unique_id=719626189 node_paths=PackedStringArray("spawns", "exit")]
 script = ExtResource("1_u4yaw")
+spawns = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3")]
+exit = NodePath("Area3D")
 metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700076046]
@@ -81,10 +87,11 @@ transform = Transform3D(16.276619, 0, 0, 0, 1, 0, 0, 0, 21.087746, -24.596638, 0
 [node name="puzzle" type="Node3D" parent="." unique_id=2003031642]
 
 [node name="BreakableWall" parent="puzzle" unique_id=769954843 instance=ExtResource("3_g7p82")]
-transform = Transform3D(-6.9938224e-08, 0, 1.6, 0, 1.6, 0, -1.6, 0, -6.9938224e-08, -0.42069244, 0.5, 26.287354)
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -0.42069244, 0.5, 25.052307)
 
-[node name="Node3D" parent="puzzle" unique_id=396079776 instance=ExtResource("4_7ch0j")]
+[node name="Node3D" parent="puzzle" unique_id=396079776 node_paths=PackedStringArray("triggers") instance=ExtResource("4_7ch0j")]
 transform = Transform3D(-1.4424758e-07, 0, 3.3, 0, 3.3, 0, -3.3, 0, -1.4424758e-07, -17.998047, -0.37200928, -9.296997)
+triggers = [NodePath("../Node3D2")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="puzzle/Node3D" unique_id=2063501606]
 transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, -0.36952686, 0.21635742, -0.034259796)
@@ -95,9 +102,11 @@ omni_range = 9.287825
 
 [node name="Node3D2" parent="puzzle" unique_id=1868907521 instance=ExtResource("5_q3mlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.738861, 0, -9.241333)
+required_weight = "low"
 
-[node name="Node3D3" parent="puzzle" unique_id=1710892061 instance=ExtResource("4_7ch0j")]
-transform = Transform3D(-2.1, 0, -3.1709118e-07, 0, 2.1, 0, 3.1709118e-07, 0, -2.1, -0.62020874, -0.37200928, 21.73584)
+[node name="Node3D3" parent="puzzle" unique_id=1710892061 node_paths=PackedStringArray("triggers") instance=ExtResource("4_7ch0j")]
+transform = Transform3D(-2.1, 0, -3.1709118e-07, 0, 2.1, 0, 3.1709118e-07, 0, -2.1, -0.62020874, -0.37200928, 20.57605)
+triggers = [NodePath("../Node3D4")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="puzzle/Node3D3" unique_id=1836591174]
 transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, -0.36952686, 0.21635742, -0.034259796)
@@ -108,8 +117,25 @@ omni_range = 9.287825
 
 [node name="Node3D4" parent="puzzle" unique_id=1092872962 instance=ExtResource("6_bpvy7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.347351, 0, -8.809692)
+script = ExtResource("8_j35h0")
 
 [node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("7_njtbm")]
 transform = Transform3D(32.02879, 0, 0, 0, 1, 0, 0, 0, 35.37489, 0.7717924, 0, 1.6521606)
 rand_seed = 10
 stuff_count = 15
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1196349014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7595215, 0.3324046, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=1864320105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.227478, 0.3324046, -5.0913086)
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=930330771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3723755, 0.3324046, 6.293457)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1404615186]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9494019, 0, 9.1528015)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1387309320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+shape = SubResource("BoxShape3D_u4yaw")
