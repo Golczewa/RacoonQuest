@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://bunn0mo2ccril"]
 
-[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_d888c"]
+[ext_resource type="Texture2D" uid="uid://b6x3li56f2tef" path="res://assets/drzewo.png" id="1_d888c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jiq1j"]
 height = 3.8642578
-radius = 0.71191406
+radius = 1.0195313
 
-[node name="Node3D" type="StaticBody3D" unique_id=885908942]
+[node name="Node3D2" type="StaticBody3D" unique_id=885908942]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=612001677]
-transform = Transform3D(1.1211984, 0, 0, 0, 3.074399, 0, 0, 0, 1, 0, 1.9796382, 0)
-modulate = Color(0, 1, 0, 1)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.7685533, 0)
 billboard = 2
 shaded = true
 alpha_cut = 2

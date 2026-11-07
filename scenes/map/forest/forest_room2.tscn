@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cadoevv4q07ml"]
+
+[ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="1_w4gpo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jn87w"]
+sky_material = SubResource("ProceduralSkyMaterial_evdi3")
+
+[sub_resource type="Environment" id="Environment_10ae1"]
+background_mode = 2
+sky = SubResource("Sky_jn87w")
+glow_intensity = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_466t5"]
+albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gx5hh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbjtb"]
+size = Vector3(88.71033, 1, 76.40268)
+
+[node name="Node3D" type="Node3D" unique_id=7942147]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1934029301]
+environment = SubResource("Environment_10ae1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=847738983]
+transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=857366256]
+transform = Transform3D(-0.5372948, -0.40243253, 0.74118984, 0, 0.8788175, 0.4771581, -0.8433945, 0.25637457, -0.47218406, 27.081015, 16.3836, -17.448977)
+fov = 32.9
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=590778289]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2027665528]
+transform = Transform3D(60.068813, 0, 0, 0, 1, 0, 0, 0, 52.193653, -0.04498291, 0.018432617, 0.020050049)
+material_override = SubResource("StandardMaterial3D_466t5")
+mesh = SubResource("PlaneMesh_gx5hh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2118167617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77142334, -0.52958965, 0.31455994)
+shape = SubResource("BoxShape3D_hbjtb")
+
+[node name="trees" type="Node3D" parent="." unique_id=2012477037]
+
+[node name="Node3D" parent="trees" unique_id=1886063575 instance=ExtResource("1_w4gpo")]
+transform = Transform3D(-60.514732, 0, 15.591712, 0, 1, 0, -60.514732, 0, -15.591712, 21.40812, 0, -12.3125)
+
+[node name="Node3D2" parent="trees" unique_id=1688952918 instance=ExtResource("1_w4gpo")]
+transform = Transform3D(-60.514732, 0, 15.591712, 0, 1, 0, -60.514732, 0, -15.591712, -15.424139, 0, 23.966125)
+
+[node name="Node3D5" parent="trees" unique_id=597940586 instance=ExtResource("1_w4gpo")]
+transform = Transform3D(11.120915, 0, -7.1680884, 0, 1.387, 0, 11.120915, 0, 7.1680884, 20.584274, 0, 36.985382)
+rand_seed = 30
+
+[node name="Node3D8" parent="trees" unique_id=1013579560 instance=ExtResource("1_w4gpo")]
+transform = Transform3D(11.120915, 0, -7.1680884, 0, 1.387, 0, 11.120915, 0, 7.1680884, 34.551178, 0, 23.510712)
+rand_seed = 30
