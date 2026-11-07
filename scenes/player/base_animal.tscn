@@ -16,11 +16,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3owqy"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_dkbdu"]
+radius = 2.0
+
 [node name="BaseAnimal" type="CharacterBody3D" unique_id=1407618352]
 script = ExtResource("1_flofl")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1981568719]
-transform = Transform3D(0.8660254, -0.17101006, 0.4698463, 0, 0.9396926, 0.34202012, -0.5, -0.2961981, 0.81379765, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.93969256, 0.3420201, 0, -0.3420201, 0.93969256, 0, 0, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals" unique_id=401181971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
@@ -31,3 +34,9 @@ sprite_frames = SubResource("SpriteFrames_8upip")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=816112685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3owqy")
+
+[node name="SwapArea" type="Area3D" parent="." unique_id=1639765843]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwapArea" unique_id=1344897689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_dkbdu")

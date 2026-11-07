@@ -12,7 +12,7 @@ script = ExtResource("2_mwcxp")
 max_speed = 8.0
 
 [node name="Visuals" parent="." index="0" unique_id=1981568719]
-transform = Transform3D(0.4330127, -0.08550504, 0.23492315, 0, 0.4698463, 0.17101008, -0.25, -0.14809906, 0.40689883, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.46984628, 0.17101005, 0, -0.17101005, 0.46984628, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
