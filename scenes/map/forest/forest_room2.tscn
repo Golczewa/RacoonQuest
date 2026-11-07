@@ -96,4 +96,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
 
 [node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("6_hink8")]
 transform = Transform3D(80.30384, 0, 0, 0, 1, 0, 0, 0, 13.356658, 0, 0, 6.2417603)
-stuff_count = 20
+rand_seed = 100
+stuff_count = 25
