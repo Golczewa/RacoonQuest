@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://4ci2ejvd1155"]
 
 [ext_resource type="Texture2D" uid="uid://ft8y41qnn3jc" path="res://assets/props/drzewolisciaste.png" id="1_mi8vs"]
+[ext_resource type="Script" uid="uid://co6cisvjarajy" path="res://scenes/props/tree_with_box.gd" id="1_w3fmj"]
 [ext_resource type="Texture2D" uid="uid://oyd2st62nc1e" path="res://assets/props/skrzynia.png" id="2_mi8vs"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_su8xc"]
-height = 5.8581543
-radius = 0.62353516
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi8vs"]
+size = Vector3(0.8, 5.858, 0.6)
 
-[node name="Node3D" type="StaticBody3D" unique_id=1324574635]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkbdu"]
+
+[node name="Node3D" type="StaticBody3D" unique_id=1324574635 groups=["climbable"]]
+script = ExtResource("1_w3fmj")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1348225672]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.1409698, 0)
@@ -23,5 +26,11 @@ alpha_cut = 2
 texture = ExtResource("2_mi8vs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1825460972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26288033, 3.0329201, 0)
-shape = SubResource("CylinderShape3D_su8xc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 3.033, 0.2)
+shape = SubResource("BoxShape3D_mi8vs")
+
+[node name="DropZone" type="Area3D" parent="." unique_id=1895347277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1900423, 6.475048, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropZone" unique_id=961796264]
+shape = SubResource("BoxShape3D_dkbdu")
