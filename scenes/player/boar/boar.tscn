@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b5v4t5fgc21xx"]
+
+[ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_fxdbj"]
+[ext_resource type="Script" uid="uid://csai7hq7x2yvc" path="res://scenes/player/boar/boar.gd" id="2_0cw3v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cw3v"]
+radius = 0.7
+height = 2.2
+
+[node name="Boar" unique_id=1407618352 instance=ExtResource("1_fxdbj")]
+script = ExtResource("2_0cw3v")
+break_speed_threshold = 6.0
+dash_impulse = 5.5
+max_speed = 3.0
+momentum_decay = 4.0
+weight = 3.0
+push_force = 8.0
+weight_class = "high"
+
+[node name="Visuals" parent="." index="0" unique_id=1981568719]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0.64, 0)
+billboard = 2
+alpha_cut = 2
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
+shape = SubResource("CapsuleShape3D_0cw3v")

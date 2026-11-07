@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cb33bkwfcxavm"]
+
+[ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_jyry5"]
+[ext_resource type="Script" uid="uid://h1220bdr62rf" path="res://racoon.gd" id="2_6vbuv"]
+
+[node name="Racoon" unique_id=1407618352 instance=ExtResource("1_jyry5")]
+script = ExtResource("2_6vbuv")

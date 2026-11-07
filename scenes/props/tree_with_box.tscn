@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://4ci2ejvd1155"]
+
+[ext_resource type="Texture2D" uid="uid://ft8y41qnn3jc" path="res://assets/props/drzewolisciaste.png" id="1_mi8vs"]
+[ext_resource type="Texture2D" uid="uid://oyd2st62nc1e" path="res://assets/props/skrzynia.png" id="2_mi8vs"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_su8xc"]
+height = 5.8581543
+radius = 0.62353516
+
+[node name="Node3D" type="StaticBody3D" unique_id=1324574635]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1348225672]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.1409698, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_mi8vs")
+
+[node name="Sprite3D" type="Sprite3D" parent="Sprite3D" unique_id=767953962]
+transform = Transform3D(0.11366185, 0.27763465, 0, -0.27763465, 0.11366185, 0, 0, 0, 0.3, 3.6015687, 6.4073524, 0.8231201)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("2_mi8vs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1825460972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26288033, 3.0329201, 0)
+shape = SubResource("CylinderShape3D_su8xc")

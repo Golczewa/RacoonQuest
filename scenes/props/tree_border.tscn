@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c4ej0jbc8fsx7"]
+
+[ext_resource type="Script" uid="uid://w3sxpqd72r72" path="res://scenes/props/tree_border.gd" id="1_3wlb6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wa3j7"]
+size = Vector3(1, 0.10546875, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1886063575]
+script = ExtResource("1_3wlb6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1665522345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0015622526, 0)
+mesh = SubResource("BoxMesh_wa3j7")

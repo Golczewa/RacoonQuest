@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b2rybtarsuty5"]
+
+[ext_resource type="Script" uid="uid://hi62eke66ms4" path="res://scenes/props/magic_wall.gd" id="1_mciv0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ew6u"]
+transparency = 1
+albedo_color = Color(1, 0.3137255, 1, 0.36862746)
+emission = Color(1, 0.3137255, 1, 1)
+emission_energy_multiplier = 4.3
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jiq1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jiq1j"]
+size = Vector3(4.5141296, 2.043396, 0.39794922)
+
+[node name="Node3D" type="StaticBody3D" unique_id=396079776]
+script = ExtResource("1_mciv0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2099238204]
+transform = Transform3D(2.2120142, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7ew6u")
+mesh = SubResource("PlaneMesh_jiq1j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256124664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050094604, 0.019195557, -0.015954614)
+shape = SubResource("BoxShape3D_jiq1j")
