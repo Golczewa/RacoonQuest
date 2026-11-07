@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdjrw48uvro2m"]
+
+[ext_resource type="Script" uid="uid://cpate6btamu6k" path="res://scenes/bunny_attack_ring.gd" id="1_6wrvj"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=556871384]
+script = ExtResource("1_6wrvj")

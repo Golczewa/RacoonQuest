@@ -24,6 +24,7 @@ radius = 0.7
 height = 2.2
 
 [node name="Boar" unique_id=1407618352 instance=ExtResource("1_fxdbj")]
+collision_mask = 5
 script = ExtResource("2_0cw3v")
 break_speed_threshold = 6.0
 dash_impulse = 5.5

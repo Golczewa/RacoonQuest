@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://620jrp4k4bt8"]
 
-[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_18nj3"]
+[ext_resource type="Texture2D" uid="uid://bd6v5xbysc8ak" path="res://assets/props/krysztal.png" id="1_18nj3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18nj3"]
 size = Vector3(0.62646484, 1.251831, 0.5576782)
@@ -12,8 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010498047, 0.66875803, -0.
 shape = SubResource("BoxShape3D_18nj3")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=386364938]
-transform = Transform3D(0.51668334, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64794433, 0)
-modulate = Color(1, 0.3137255, 1, 1)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5712122, 0)
 billboard = 2
 shaded = true
 alpha_cut = 2
