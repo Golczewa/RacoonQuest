@@ -29,8 +29,9 @@ albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch0j"]
 size = Vector3(95.673, 1, 106.61083)
 
-[node name="Node3D" type="Node3D" unique_id=719626189]
+[node name="Node3D" type="Node3D" unique_id=719626189 node_paths=PackedStringArray("spawns")]
 script = ExtResource("1_u4yaw")
+spawns = [null, null, null]
 metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700076046]
