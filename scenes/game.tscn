@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0fdxknxb80m5"]
 
-[ext_resource type="PackedScene" uid="uid://cadoevv4q07ml" path="res://scenes/map/forest/forest_room2.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cu8egwpc7kry4" path="res://scenes/map/forest/forest_room1.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://b8xaa2jtccmya" path="res://scenes/player_test.tscn" id="2_yqjtg"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435]
@@ -8,4 +8,4 @@
 [node name="Node3D2" parent="." unique_id=64266760 instance=ExtResource("2_yqjtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.949287, 0, 1.3991699)
 
-[node name="Node3D" parent="." unique_id=7942147 instance=ExtResource("2_lnu2h")]
+[node name="Node3D" parent="." unique_id=1050879372 instance=ExtResource("1_uwrxv")]

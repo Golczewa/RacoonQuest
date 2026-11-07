@@ -1,13 +1,25 @@
 [gd_scene format=3 uid="uid://dq23tqc7yiy22"]
 
-[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_n51pa"]
 [ext_resource type="Script" uid="uid://burhjyg8av6qr" path="res://scenes/props/weight_button.gd" id="1_pi6ye"]
+[ext_resource type="Texture2D" uid="uid://bpv5ew2apr04a" path="res://assets/props/button1.png" id="2_pi6ye"]
+[ext_resource type="Texture2D" uid="uid://t1qby7347u2l" path="res://assets/props/button2.png" id="3_of4ub"]
+[ext_resource type="Texture2D" uid="uid://dxl5l570jwi1q" path="res://assets/props/button3_.png" id="4_0le6v"]
+[ext_resource type="Texture2D" uid="uid://ieo02c62gly1" path="res://assets/props/button-wcisniety.png" id="5_hglfp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jiq1j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_n51pa")
+"texture": ExtResource("2_pi6ye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_of4ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0le6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hglfp")
 }],
 "loop": 1,
 "name": &"default",
@@ -16,18 +28,18 @@ animations = [{
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s7il6"]
 height = 0.41931152
+radius = 0.6352539
 
 [node name="Node3D" type="Node3D" unique_id=1868907521]
 script = ExtResource("1_pi6ye")
-required_weight = null
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=639448602]
-transform = Transform3D(1, 0, 0, 0, 0.10047803, 0, 0, 0, 1, 0, 0, 0)
-modulate = Color(0.23529412, 0, 0, 1)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.100403786, 0)
 billboard = 2
 shaded = true
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_jiq1j")
+frame_progress = 0.5342736
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1902144439]
 
