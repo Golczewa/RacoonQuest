@@ -1,9 +1,12 @@
 extends CharacterBody3D
-var player:Player
+class_name Vamp_bunny
 
+@export var player: AnimalCharacter
+@export var bullet: StaticBody3D
 @export var speed = 30
 @onready var shoot = preload("res://scenes/shoot.tscn")
 
+signal less_hp
 
 enum {
 	IDLE,
@@ -17,28 +20,29 @@ const TURN_SPEED = 2
 @onready var boom_timer: Timer = $BoomTimer
 
 var state = IDLE
+var main_controller
+
 func _ready() -> void:
-	pass
+	main_controller= get_parent().get_parent()
+
+			
 
 func _on_attack_zone_body_entered(body: Node3D) -> void:
-	if body is Player:
-		player = body
+	if body is AnimalCharacter:
 		state = ALERT
-		target = body
 		shoot_timer.start()
+
 	
-func _on_attack_zone_body_exited(body: Node3D) -> void:
-	state = IDLE
-	shoot_timer.stop()
-	target = null
-	player = null
+#func _on_attack_zone_body_exited(body: Node3D) -> void:
+	#state = IDLE
+	#shoot_timer.stop()
+	#target = null
+	#player = null
 
 func _physics_process(delta: float) -> void:
-
-
-	
 	match state:
 		ALERT:
+			target = main_controller.active_animal
 			raycast.look_at(target.global_transform.origin, Vector3.UP)
 			raycast.global_transform.origin = global_transform.origin 
 			raycast.target_position = Vector3(0,0,-10)
@@ -47,16 +51,16 @@ func _physics_process(delta: float) -> void:
 			var min_distance = 3.0
 			if distance_to_target > min_distance:
 				var direction = (target.global_transform.origin - global_transform.origin).normalized()
-				var target_velocity = direction * speed
-				velocity.x =  target_velocity.x * delta * 7
-				velocity.z = target_velocity.z * delta * 7
+				var target_velocity = direction * speed 
+				velocity.x =  target_velocity.x * delta * 15
+				velocity.z = target_velocity.z * delta * 15
 				move_and_slide()
 
 				
 func _on_shoot_timer_timeout() -> void:
 	if raycast.is_colliding():
 		var hit = raycast.get_collider()
-		if hit is Player:
+		if hit is AnimalCharacter:
 			var shoot_temp = shoot.instantiate()
 			var origin = raycast.global_transform.origin
 			var collision_point = raycast.get_collision_point()
@@ -67,9 +71,3 @@ func _on_shoot_timer_timeout() -> void:
 			shoot_temp.get_node("enemy_shoot").direction = direction
 			
 			
-func _on_boom_timer_timeout() -> void:
-	shoot_timer.stop()
-	if raycast.is_colliding:
-		var boom = raycast.get_collider()
-	
-	

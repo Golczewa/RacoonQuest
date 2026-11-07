@@ -1,14 +1,24 @@
 extends Sprite3D
 
-signal no_hp_left
-
+@export var vamp: Vamp_bunny
+var damage = 10
 @export var max_hp = 100
+
 
 func _ready() -> void:
 	$SubViewport/Panel/ProgressBar.max_value = max_hp
 	$SubViewport/Panel/ProgressBar.value = max_hp
+	
+	vamp.less_hp.connect(update)
+		
 
-
+func update():
+	$SubViewport/Panel/ProgressBar.value -= damage
+	
+	if $SubViewport/Panel/ProgressBar.value <= 0:
+		print("You died")
+		get_tree().change_scene_to_file("res://scenes/map/room_boss.tscn")
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
