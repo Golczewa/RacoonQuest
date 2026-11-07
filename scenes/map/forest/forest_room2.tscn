@@ -31,8 +31,10 @@ size = Vector3(118.081635, 1, 76.40268)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gnusc"]
 size = Vector3(3.3127441, 2.0805664, 13.045288)
 
-[node name="Node3D" type="Node3D" unique_id=1272860177]
+[node name="Node3D" type="Node3D" unique_id=1272860177 node_paths=PackedStringArray("spawns", "exit")]
 script = ExtResource("1_gnusc")
+spawns = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3")]
+exit = NodePath("Area3D")
 metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1934029301]

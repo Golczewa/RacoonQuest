@@ -15,18 +15,20 @@ func _ready() -> void:
 
 
 func next_room()->void:
-	if(curr_room_num>=rooms.size()-1):
+	print(":sob:")
+	if(curr_room_num>=rooms.size()):
 		return
+	print("changing room to",str(curr_room_num+1))
 	curr_room_num+=1
 	curr_room.queue_free()
 	curr_room=rooms[curr_room_num].instantiate()
 	add_child(curr_room)
 	for i in animals.size():
-		animals[i].global_position=curr_room.spawns[i]
+		animals[i].global_position=curr_room.spawns[i].global_position
 
 
 func first_room()->void:
 	curr_room=rooms[0].instantiate()
 	add_child(curr_room)
 	for i in animals.size():
-		animals[i].global_position=curr_room.spawns[i]
+		animals[i].global_position=curr_room.spawns[i].global_position
