@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4mrhf0fmuwkp"]
 
 [ext_resource type="PackedScene" uid="uid://d1ciccx0qcnvc" path="res://scenes/props/stone.tscn" id="1_tfhgi"]
+[ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_u4yaw"]
 [ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="2_wmxka"]
 [ext_resource type="PackedScene" uid="uid://b52g0q605qn7c" path="res://scenes/map/breakable_wall.tscn" id="3_g7p82"]
 [ext_resource type="PackedScene" uid="uid://b2rybtarsuty5" path="res://scenes/props/magic_wall.tscn" id="4_7ch0j"]
@@ -28,7 +29,9 @@ albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch0j"]
 size = Vector3(95.673, 1, 106.61083)
 
-[node name="Node3D" type="Node3D" unique_id=191729873]
+[node name="Node3D" type="Node3D" unique_id=719626189]
+script = ExtResource("1_u4yaw")
+metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700076046]
 environment = SubResource("Environment_tfhgi")

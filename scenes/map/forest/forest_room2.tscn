@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cadoevv4q07ml"]
 
+[ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_gnusc"]
 [ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="1_w4gpo"]
 [ext_resource type="PackedScene" uid="uid://4ci2ejvd1155" path="res://scenes/props/tree_with_box.tscn" id="2_6ugf7"]
 [ext_resource type="PackedScene" uid="uid://bunn0mo2ccril" path="res://scenes/props/tree.tscn" id="2_trxp7"]
@@ -27,7 +28,12 @@ albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbjtb"]
 size = Vector3(118.081635, 1, 76.40268)
 
-[node name="Node3D" type="Node3D" unique_id=7942147]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnusc"]
+size = Vector3(3.3127441, 2.0805664, 13.045288)
+
+[node name="Node3D" type="Node3D" unique_id=1272860177]
+script = ExtResource("1_gnusc")
+metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1934029301]
 environment = SubResource("Environment_10ae1")
@@ -99,3 +105,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
 transform = Transform3D(80.30384, 0, 0, 0, 1, 0, 0, 0, 13.356658, 0, 0, 6.2417603)
 rand_seed = 100
 stuff_count = 25
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1243121919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.117374, 0.42917633, 6.1970825)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=286465186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.003864, 0.42917633, 3.921875)
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=1490116123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.443974, 0.42917633, 4.0633545)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1712807614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.148865, 0, 10.344147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=828738072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+shape = SubResource("BoxShape3D_gnusc")
