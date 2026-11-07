@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is AnimalCharacter:
-		if body.weight == required_weight:
+		if body.weight_class == required_weight:
 			correct.emit()
 		else:
 			wrong.emit()
@@ -25,7 +25,7 @@ func _on_body_entered(body: Node3D) -> void:
 
 
 func _on_body_exited(body: Node3D) -> void:
-	if body is AnimalCharacter:
+	if body is AnimalCharacter and area.get_overlapping_bodies().is_empty():
 		wrong.emit()
 		unpress()
 

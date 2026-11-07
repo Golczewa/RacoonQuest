@@ -50,15 +50,18 @@ shape = SubResource("BoxShape3D_jiq1j")
 
 [node name="Node3D" parent="puzzle" unique_id=1868907521 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.042786, 0.069397196, -3.270874)
+required_weight = "high"
 
 [node name="Node3D2" parent="puzzle" unique_id=1680471440 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.090637, 0.069397196, 2.7877197)
 
 [node name="Node3D3" parent="puzzle" unique_id=1209280144 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46917725, 0.069397196, -3.270874)
+required_weight = "low"
 
-[node name="Node3D4" parent="puzzle" unique_id=2085222894 instance=ExtResource("3_1o7kp")]
+[node name="Node3D4" parent="puzzle" unique_id=2085222894 node_paths=PackedStringArray("triggers") instance=ExtResource("3_1o7kp")]
 transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -15.335007, 0.0031738281, -1.9570618)
+triggers = [NodePath("../Node3D"), NodePath("../Node3D2"), NodePath("../Node3D3")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="puzzle/Node3D4" unique_id=1154240968]
 transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, -0.36952686, 0.21635742, -0.034259796)

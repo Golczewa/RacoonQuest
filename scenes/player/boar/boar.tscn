@@ -15,9 +15,15 @@ max_speed = 3.0
 momentum_decay = 4.0
 weight = 3.0
 push_force = 8.0
+weight_class = "high"
 
-[node name="AnimatedSprite3D" parent="Visuals" parent_id_path=PackedInt32Array(1981568719) index="0" unique_id=401181971]
+[node name="Visuals" parent="." index="0" unique_id=1981568719]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0.64, 0)
+billboard = 2
+alpha_cut = 2
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
 shape = SubResource("CapsuleShape3D_0cw3v")
