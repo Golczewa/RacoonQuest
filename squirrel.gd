@@ -22,6 +22,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 
 	if is_climbing and is_active_player:
+		if Input.is_action_just_pressed("jump"):
+			is_climbing = false
+			velocity.y = jump_velocity
+			move_and_slide()
+			return
 		var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		var cam := get_viewport().get_camera_3d()
 		var right := cam.global_transform.basis.x if cam else Vector3.RIGHT
