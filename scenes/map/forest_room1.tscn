@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cu8egwpc7kry4"]
+
+[ext_resource type="PackedScene" uid="uid://dq23tqc7yiy22" path="res://scenes/props/weight_button.tscn" id="1_u6mw1"]
+[ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="2_wa3j7"]
+[ext_resource type="PackedScene" uid="uid://b2rybtarsuty5" path="res://scenes/props/magic_wall.tscn" id="3_1o7kp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e5q0i"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jn87w"]
+sky_material = SubResource("ProceduralSkyMaterial_e5q0i")
+
+[sub_resource type="Environment" id="Environment_u6mw1"]
+background_mode = 2
+sky = SubResource("Sky_jn87w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wa3j7"]
+albedo_color = Color(0, 0.2, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1o7kp"]
+
+[node name="Node3D" type="Node3D" unique_id=1050879372]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1425860202]
+environment = SubResource("Environment_u6mw1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=208013699]
+transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1764562201]
+transform = Transform3D(43.541462, 0, 0, 0, 1, 0, 0, 0, 37.912014, -0.04498291, 0.018432617, 0.020050049)
+material_override = SubResource("StandardMaterial3D_wa3j7")
+mesh = SubResource("PlaneMesh_1o7kp")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=317554420]
+transform = Transform3D(-0.5372948, -0.40243253, 0.74118984, 0, 0.8788175, 0.4771581, -0.8433945, 0.25637457, -0.47218406, 27.081015, 16.3836, -17.448977)
+fov = 32.9
+
+[node name="button" type="Node3D" parent="." unique_id=351525831]
+
+[node name="Node3D" parent="button" unique_id=1868907521 instance=ExtResource("1_u6mw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.042786, 0.069397196, -3.270874)
+
+[node name="Node3D2" parent="button" unique_id=1680471440 instance=ExtResource("1_u6mw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.090637, 0.069397196, 2.7877197)
+
+[node name="Node3D3" parent="button" unique_id=1209280144 instance=ExtResource("1_u6mw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46917725, 0.069397196, -3.270874)
+
+[node name="trees_borders" type="Node3D" parent="." unique_id=348258299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03161621, 0.07080078, 0.03100586)
+
+[node name="Node3D" parent="trees_borders" unique_id=1886063575 instance=ExtResource("2_wa3j7")]
+transform = Transform3D(24.07052, 0, -2.7127411, 0, 1.387, 0, 26.512157, 0, 2.4629114, -10.137878, 0, 12.11853)
+rand_seed = 30
+
+[node name="Node3D2" parent="trees_borders" unique_id=1898674146 instance=ExtResource("2_wa3j7")]
+transform = Transform3D(-24.577063, 0, -2.4538174, 0, 1, 0, 24.098473, 0, -2.5025492, 11.08313, 0, 12.906189)
+rand_seed = 30
+
+[node name="Node3D3" parent="trees_borders" unique_id=1658861143 instance=ExtResource("2_wa3j7")]
+transform = Transform3D(23.981163, 0, -2.6338959, 0, 1, 0, 26.413734, 0, 2.3913279, 10.904419, 0, -9.685059)
+rand_seed = 30
+
+[node name="Node3D4" parent="trees_borders" unique_id=2136115208 instance=ExtResource("2_wa3j7")]
+transform = Transform3D(3.3139167, 0, -6.475451, 0, 1.3832827, 0, 3.6500697, 0, 5.879093, -4.5875854, 0, -17.926392)
+rand_seed = 30
+
+[node name="Node3D5" parent="trees_borders" unique_id=1024255552 instance=ExtResource("2_wa3j7")]
+transform = Transform3D(2.83514, 0, -7.3958316, 0, 1.387, 0, 3.1227274, 0, 6.7147117, -18.799194, 0, -3.1347961)
+rand_seed = 30
+
+[node name="Node3D" parent="." unique_id=2085222894 instance=ExtResource("3_1o7kp")]
+transform = Transform3D(1.767767, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, 1.767767, -12.163025, 0, -11.178528)

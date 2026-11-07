@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_abbiu"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jiq1j"]
-size = Vector3(1.2114258, 1.1884155, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_ua2mj"]
+radius = 0.23214278
 
 [node name="Node3D" type="StaticBody3D" unique_id=1341257114]
 
@@ -15,7 +15,5 @@ alpha_cut = 2
 texture = ExtResource("1_abbiu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=597536868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033753395, 0.77578735, 0)
-visible = false
-shape = SubResource("BoxShape3D_jiq1j")
+shape = SubResource("SphereShape3D_ua2mj")
 disabled = true

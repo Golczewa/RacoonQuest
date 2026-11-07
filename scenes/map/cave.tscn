@@ -45,4 +45,4 @@ fov = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5099759, 0.39721513, -0.427567)
 
 [node name="Node3D2" parent="props" unique_id=1341257114 instance=ExtResource("2_hr3m1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3339059, 0.38512427, 0.022563696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7704294, 0.38512427, 0.022563696)
