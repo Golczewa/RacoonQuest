@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2rybtarsuty5" path="res://scenes/props/magic_wall.tscn" id="4_7ch0j"]
 [ext_resource type="PackedScene" uid="uid://dq23tqc7yiy22" path="res://scenes/props/weight_button.tscn" id="5_q3mlr"]
 [ext_resource type="PackedScene" uid="uid://620jrp4k4bt8" path="res://scenes/props/magic_ball.tscn" id="6_bpvy7"]
+[ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="7_njtbm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_is4nn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -103,3 +104,8 @@ omni_range = 9.287825
 
 [node name="Node3D4" parent="puzzle" unique_id=1092872962 instance=ExtResource("6_bpvy7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.347351, 0, -8.809692)
+
+[node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("7_njtbm")]
+transform = Transform3D(32.02879, 0, 0, 0, 1, 0, 0, 0, 35.37489, 0.7717924, 0, 1.6521606)
+rand_seed = 10
+stuff_count = 15
