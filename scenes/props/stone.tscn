@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1ciccx0qcnvc"]
+
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_awwim"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jiq1j"]
+size = Vector3(2.6069846, 2.6896248, 14.245213)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awwim"]
+size = Vector3(12.593763, 4.3453007, 14.245213)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1976080715]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2125799648]
+transform = Transform3D(10, 0, 0, 0, 3.416833, 0, 0, 0, 4.938, 0, 2.1925387, 0)
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_awwim")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1918019273]
+transform = Transform3D(5, 0, 0, 0, 2.1478114, 0, 0, 0, 2.469, 5.8264456, 1.3883109, 1.707861)
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_awwim")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1147894874]
+transform = Transform3D(5, 0, 0, 0, 2.385, 0, 0, 0, 2.469, 0.5245209, 1.4197221, -1.6515551)
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_awwim")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1802412949]
+transform = Transform3D(7.3226814, 0, 0, 0, 6.792766, 0, 0, 0, 4.938, -0.5723765, 4.387036, 2.857544)
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_awwim")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1657744997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.757641, 1.4157352, 0.16687965)
+shape = SubResource("BoxShape3D_jiq1j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=660658090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09384608, 2.268159, 0.16687965)
+shape = SubResource("BoxShape3D_awwim")

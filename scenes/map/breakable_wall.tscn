@@ -5,7 +5,7 @@ albedo_color = Color(0.48235294, 0.16078432, 0.078431375, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dkbdu"]
 material = SubResource("StandardMaterial3D_nbn7b")
-size = Vector3(1, 2, 3)
+size = Vector3(1, 2, 5.1640625)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dkbdu"]
 size = Vector3(1, 2, 3)

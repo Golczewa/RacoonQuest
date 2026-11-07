@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cr5880s8ngg05"]
+
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_3ii0o"]
+
+[node name="Node3D" type="Node3D" unique_id=19779640]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1824209236]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 2
+texture = ExtResource("1_3ii0o")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1395985973]
+light_color = Color(1, 0.80784315, 0.16862746, 1)
+shadow_enabled = true
