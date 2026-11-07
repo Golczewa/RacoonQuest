@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cif8558vwpp77"]
+
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="2_6iwxn"]
+[ext_resource type="Script" uid="uid://krlaow8qnvx2" path="res://scripts/vamp_bunny.gd" id="2_x8q4s"]
+[ext_resource type="PackedScene" uid="uid://cyw6hnqtq8g4" path="res://scenes/bunny_health.tscn" id="3_6iwxn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spkyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snmsy"]
+atlas = ExtResource("2_6iwxn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjb86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snmsy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p354l"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6iwxn"]
+viewport_path = NodePath("SubViewport")
+
+[node name="enemy_bunny" type="Node3D" unique_id=2053436012]
+
+[node name="vamp_bunny" type="CharacterBody3D" parent="." unique_id=1091209018]
+script = ExtResource("2_x8q4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vamp_bunny" unique_id=1295305302]
+shape = SubResource("BoxShape3D_spkyn")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="vamp_bunny" unique_id=938733881]
+sprite_frames = SubResource("SpriteFrames_sjb86")
+
+[node name="attack_zone" type="Area3D" parent="vamp_bunny" unique_id=1623751902]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vamp_bunny/attack_zone" unique_id=221848431]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+shape = SubResource("BoxShape3D_p354l")
+
+[node name="ShootTimer" type="Timer" parent="vamp_bunny" unique_id=312836749]
+
+[node name="RayCast3D" type="RayCast3D" parent="vamp_bunny" unique_id=473361434]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+target_position = Vector3(0, 0, 1)
+
+[node name="BoomTimer" type="Timer" parent="vamp_bunny" unique_id=1697876881]
+wait_time = 10.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="vamp_bunny" unique_id=542483083]
+
+[node name="Sprite3D" parent="vamp_bunny" unique_id=82122180 instance=ExtResource("3_6iwxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93000114, 0)
+texture = SubResource("ViewportTexture_6iwxn")
+
+[connection signal="body_entered" from="vamp_bunny/attack_zone" to="vamp_bunny" method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="vamp_bunny/attack_zone" to="vamp_bunny" method="_on_attack_zone_body_exited"]
+[connection signal="timeout" from="vamp_bunny/ShootTimer" to="vamp_bunny" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="vamp_bunny/BoomTimer" to="vamp_bunny" method="_on_boom_timer_timeout"]

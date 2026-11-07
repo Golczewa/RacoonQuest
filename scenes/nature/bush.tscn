@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxip7l58sd4gc"]
+
+[ext_resource type="Texture2D" uid="uid://ca4wpcx0ln8jv" path="res://assets/krzak.png" id="1_lad4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm86"]
+size = Vector3(1.0869141, 1, 1)
+
+[node name="Bush" type="Node3D" unique_id=1668685286]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1613671557]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.119015455, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=835476322]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.43822742, 0)
+texture = ExtResource("1_lad4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=689060944]
+transform = Transform3D(1.3893625, 0, 0, 0, 0.8606591, 0, 0, 0, 0.56570196, -0.060377568, 0.35197687, 0.021306276)
+shape = SubResource("BoxShape3D_fcm86")

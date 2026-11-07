@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4dtltqwhvf8h"]
+
+[ext_resource type="Script" uid="uid://durwuoh8jp5u1" path="res://scripts/enemy_shoot.gd" id="1_nsl4x"]
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_wt6h8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fcm86"]
+
+[node name="shoot" type="Node3D" unique_id=931152014]
+
+[node name="enemy_shoot" type="Area3D" parent="." unique_id=1560292374]
+script = ExtResource("1_nsl4x")
+
+[node name="Sprite3D" type="Sprite3D" parent="enemy_shoot" unique_id=210478416]
+transform = Transform3D(0.37341967, 0, 0, 0, 0.38693368, 0, 0, 0, 1.0463933, 0, 0, 0)
+texture = ExtResource("1_wt6h8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_shoot" unique_id=2060454826]
+shape = SubResource("SphereShape3D_fcm86")
