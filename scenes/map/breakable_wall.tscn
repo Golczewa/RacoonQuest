@@ -11,6 +11,7 @@ size = Vector3(1, 2, 3)
 size = Vector3(1, 2, 3)
 
 [node name="BreakableWall" type="StaticBody3D" unique_id=769954843 groups=["breakable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1468504780]
 mesh = SubResource("BoxMesh_dkbdu")
