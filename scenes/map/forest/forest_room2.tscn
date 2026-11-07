@@ -32,7 +32,7 @@ transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.79204
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=857366256]
-transform = Transform3D(-0.5372948, -0.40243253, 0.74118984, 0, 0.8788175, 0.4771581, -0.8433945, 0.25637457, -0.47218406, 27.081015, 16.3836, -17.448977)
+transform = Transform3D(1, 0, 0, 0, 0.8788171, 0.47715878, 0, -0.47715878, 0.8788171, 27.081015, 16.3836, -17.448977)
 fov = 32.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=590778289]
@@ -49,15 +49,17 @@ shape = SubResource("BoxShape3D_hbjtb")
 [node name="trees" type="Node3D" parent="." unique_id=2012477037]
 
 [node name="Node3D" parent="trees" unique_id=1886063575 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(-60.514732, 0, 15.591712, 0, 1, 0, -60.514732, 0, -15.591712, 21.40812, 0, -12.3125)
+transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -0.9581833, 0, -22.24353)
 
 [node name="Node3D2" parent="trees" unique_id=1688952918 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(-60.514732, 0, 15.591712, 0, 1, 0, -60.514732, 0, -15.591712, -15.424139, 0, 23.966125)
+transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -0.9776058, 0, 34.42987)
 
 [node name="Node3D5" parent="trees" unique_id=597940586 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(11.120915, 0, -7.1680884, 0, 1.387, 0, 11.120915, 0, 7.1680884, 20.584274, 0, 36.985382)
+transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, 33.879807, 0, 18.221832)
 rand_seed = 30
 
 [node name="Node3D8" parent="trees" unique_id=1013579560 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(11.120915, 0, -7.1680884, 0, 1.387, 0, 11.120915, 0, 7.1680884, 34.551178, 0, 23.510712)
+transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, 33.950317, 0, -6.096344)
 rand_seed = 30
+
+[node name="puzzle" type="Node3D" parent="." unique_id=140901573]

@@ -35,7 +35,7 @@ transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.79204
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=317554420]
-transform = Transform3D(-0.5372948, -0.40243253, 0.74118984, 0, 0.8788175, 0.4771581, -0.8433945, 0.25637457, -0.47218406, 27.081015, 16.3836, -17.448977)
+transform = Transform3D(1, 0, 0, 0, 0.8788171, 0.47715878, 0, -0.47715878, 0.8788171, 27.081015, 16.3836, -17.448977)
 fov = 32.9
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1837683333]
@@ -49,49 +49,49 @@ mesh = SubResource("PlaneMesh_1o7kp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77142334, -0.52958965, 0.31455994)
 shape = SubResource("BoxShape3D_jiq1j")
 
-[node name="button" type="Node3D" parent="." unique_id=351525831]
+[node name="puzzle" type="Node3D" parent="." unique_id=351525831]
 
-[node name="Node3D" parent="button" unique_id=1868907521 instance=ExtResource("1_u6mw1")]
+[node name="Node3D" parent="puzzle" unique_id=1868907521 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.042786, 0.069397196, -3.270874)
 
-[node name="Node3D2" parent="button" unique_id=1680471440 instance=ExtResource("1_u6mw1")]
+[node name="Node3D2" parent="puzzle" unique_id=1680471440 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.090637, 0.069397196, 2.7877197)
 
-[node name="Node3D3" parent="button" unique_id=1209280144 instance=ExtResource("1_u6mw1")]
+[node name="Node3D3" parent="puzzle" unique_id=1209280144 instance=ExtResource("1_u6mw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46917725, 0.069397196, -3.270874)
+
+[node name="Node3D4" parent="puzzle" unique_id=2085222894 instance=ExtResource("3_1o7kp")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -15.335007, 0.0031738281, -1.9570618)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="puzzle/Node3D4" unique_id=1154240968]
+transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, -0.36952686, 0.21635742, -0.034259796)
+light_color = Color(1, 0.3137255, 1, 1)
+light_energy = 8.008
+light_size = 1.945
+omni_range = 9.287825
 
 [node name="trees_borders" type="Node3D" parent="." unique_id=348258299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03161621, 0.07080078, 0.03100586)
 
 [node name="Node3D2" parent="trees_borders" unique_id=1898674146 instance=ExtResource("2_wa3j7")]
-transform = Transform3D(-44.313316, 0, -17.719715, 0, 0.8388599, 0, 43.450405, 0, -18.07162, 20.749634, 0, 22.985077)
+transform = Transform3D(-2.7127867e-06, 0, 25.309519, 0, 0.8388599, 0, -62.061325, 0, -1.1063142e-06, 32.896515, 0, -1.1471252)
 rand_seed = 30
 
 [node name="Node3D5" parent="trees_borders" unique_id=1024255552 instance=ExtResource("2_wa3j7")]
-transform = Transform3D(11.120915, 0, -7.1680884, 0, 1.387, 0, 11.120915, 0, 7.1680884, -22.9859, 0, -7.837616)
+transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, -21.256884, 0, -14.620087)
 rand_seed = 30
 
 [node name="Node3D6" parent="trees_borders" unique_id=1886063575 instance=ExtResource("2_wa3j7")]
-transform = Transform3D(35.243153, 0, -22.107586, 0, 1, 0, 35.243153, 0, 22.107586, -27.2901, 0, 17.416046)
+transform = Transform3D(49.841347, 0, 0, 0, 1, 0, 0, 0, 31.264849, -4.6583557, 0, 28.848541)
 rand_seed = 30
 
 [node name="Node3D7" parent="trees_borders" unique_id=841863043 instance=ExtResource("2_wa3j7")]
-transform = Transform3D(33.50295, 0, -23.147768, 0, 1, 0, 36.90138, 0, 21.015984, 17.162354, 0, -25.20047)
+transform = Transform3D(49.841343, 0, 0, 0, 1, 0, 0, 0, 31.264849, -4.085846, 0, -35.427277)
 rand_seed = 30
 
 [node name="Node3D8" parent="trees_borders" unique_id=1447366580 instance=ExtResource("2_wa3j7")]
-transform = Transform3D(10.571797, 0, -7.505356, 0, 1.387, 0, 11.644166, 0, 6.814149, -8.224426, 0, -22.271881)
+transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, -21.484169, 0, 8.332367)
 rand_seed = 30
-
-[node name="Node3D" parent="." unique_id=2085222894 instance=ExtResource("3_1o7kp")]
-transform = Transform3D(1.767767, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, 1.767767, -10.564758, 0.0031738281, -9.435944)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1154240968]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.278559, 0.5440674, -8.843269)
-light_color = Color(1, 0.3137255, 1, 1)
-light_energy = 8.008
-light_size = 1.945
-omni_range = 9.287825
 
 [node name="loose_trees" type="Node3D" parent="." unique_id=1912497027]
 
