@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cadoevv4q07ml"]
 
 [ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="1_w4gpo"]
+[ext_resource type="PackedScene" uid="uid://4ci2ejvd1155" path="res://scenes/props/tree_with_box.tscn" id="2_6ugf7"]
+[ext_resource type="PackedScene" uid="uid://cx4jtv4imss6s" path="res://scenes/props/box.tscn" id="3_g460o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,3 +65,9 @@ transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, 33.950317
 rand_seed = 30
 
 [node name="puzzle" type="Node3D" parent="." unique_id=140901573]
+
+[node name="Node3D" parent="puzzle" unique_id=1324574635 instance=ExtResource("2_6ugf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8817596, 0, 6.055542)
+
+[node name="Node3D2" parent="puzzle" unique_id=1032443699 instance=ExtResource("3_g460o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.519226, 0.5218506, 0)
