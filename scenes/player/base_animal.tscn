@@ -17,9 +17,10 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3owqy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dkbdu"]
-radius = 2.0
+radius = 3.0
 
 [node name="BaseAnimal" type="CharacterBody3D" unique_id=1407618352]
+platform_on_leave = 2
 script = ExtResource("1_flofl")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1981568719]

@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var acceleration: float = 30.0
 @export var friction: float = 50.0
 @export var momentum_decay: float = 6.0
+@export var jump_velocity: float = 6.3
 
 @export_group("Physics & Puzzle Stats")
 @export var weight: float = 1.0
@@ -32,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	
 	if is_active_player:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = jump_velocity
+			
 		var input_dir := _get_input_direction()
 		_handle_movement(input_dir, delta)
 		_update_visuals(input_dir)
@@ -49,15 +53,12 @@ func _handle_collisions(velocity_before_move: Vector3) -> void:
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
 		var collider := collision.get_collider()
-		
+
 		if collider is RigidBody3D:
-			var push_dir := -collision.get_normal()
-			push_dir.y = 0.0
-			if push_dir.length_squared() > 0.001:
-				push_dir = push_dir.normalized()
+			var normal := collision.get_normal()
+			if abs(normal.y) < 0.3:
+				var push_dir := Vector3(-normal.x, 0.0, -normal.z).normalized()
 				collider.apply_central_impulse(push_dir * push_force * 0.15)
-				
-		_on_slide_collision(collision, velocity_before_move)
 
 func _on_slide_collision(_collision: KinematicCollision3D, _velocity_before_move: Vector3) -> void:
 	pass
@@ -99,7 +100,8 @@ func _get_input_direction() -> Vector3:
 	return (right * raw_input.x + forward * -raw_input.y).limit_length(1.0)
 
 func _handle_movement(direction: Vector3, delta: float) -> void:
-	var is_over_speed := velocity.length() > max_speed + 0.5
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+	var is_over_speed := horizontal_speed > max_speed + 0.5
 	var current_accel := momentum_decay if is_over_speed else acceleration
 	var current_friction := momentum_decay if is_over_speed else friction
 
