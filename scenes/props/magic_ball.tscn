@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://620jrp4k4bt8"]
+
+[ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="1_18nj3"]
+
+[node name="Node3D" type="StaticBody3D" unique_id=1092872962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724837190]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=386364938]
+transform = Transform3D(0.51668334, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64794433, 0)
+modulate = Color(1, 0.3137255, 1, 1)
+texture = ExtResource("1_18nj3")

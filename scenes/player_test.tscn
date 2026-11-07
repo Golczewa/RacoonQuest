@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b8xaa2jtccmya"]
 
-[ext_resource type="Texture2D" uid="uid://c2m5fmhhgq1r0" path="res://assets/szoppracz1.png" id="1_a8v3n"]
+[ext_resource type="Texture2D" uid="uid://c2m5fmhhgq1r0" path="res://assets/player/szoppracz1.png" id="1_a8v3n"]
 [ext_resource type="Script" uid="uid://ei02hlte03wp" path="res://scenes/player_test.gd" id="1_fdpfy"]
-[ext_resource type="Texture2D" uid="uid://belvlmnlm3sdf" path="res://assets/szoppracz2.png" id="3_6p80c"]
+[ext_resource type="Texture2D" uid="uid://belvlmnlm3sdf" path="res://assets/player/szoppracz2.png" id="3_6p80c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jiq1j"]
 animations = [{

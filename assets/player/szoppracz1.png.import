@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6x3li56f2tef"
-path.s3tc="res://.godot/imported/drzewo.png-341ca618b657369329a490d9f2f50d55.s3tc.ctex"
+uid="uid://c2m5fmhhgq1r0"
+path.s3tc="res://.godot/imported/szoppracz1.png-6b9483e2eb888106d4ac6ff107814ddf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/drzewo.png"
-dest_files=["res://.godot/imported/drzewo.png-341ca618b657369329a490d9f2f50d55.s3tc.ctex"]
+source_file="res://assets/player/szoppracz1.png"
+dest_files=["res://.godot/imported/szoppracz1.png-6b9483e2eb888106d4ac6ff107814ddf.s3tc.ctex"]
 
 [params]
 

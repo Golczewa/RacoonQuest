@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4ci2ejvd1155"]
 
-[ext_resource type="Texture2D" uid="uid://b6x3li56f2tef" path="res://assets/drzewo.png" id="1_su8xc"]
+[ext_resource type="Texture2D" uid="uid://b6x3li56f2tef" path="res://assets/props/drzewo.png" id="1_su8xc"]
 [ext_resource type="Texture2D" uid="uid://bjhnmx4vfx0vp" path="res://icon.svg" id="2_mi8vs"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_su8xc"]
