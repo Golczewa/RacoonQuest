@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://buequic0uogo6"]
+
+[ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_om24i"]
+[ext_resource type="Script" uid="uid://cwnm6qsrw11o3" path="res://squirrel.gd" id="2_mwcxp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_om24i"]
+radius = 0.25
+height = 0.8
+
+[node name="Squirrel" unique_id=1407618352 instance=ExtResource("1_om24i")]
+script = ExtResource("2_mwcxp")
+max_speed = 8.0
+
+[node name="Visuals" parent="." index="0" unique_id=1981568719]
+transform = Transform3D(0.5, 0, 0, 0, 0.46984628, 0.17101005, 0, -0.17101005, 0.46984628, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CapsuleShape3D_om24i")
