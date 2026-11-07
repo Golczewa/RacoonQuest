@@ -33,6 +33,7 @@ environment = SubResource("Environment_u6mw1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=208013699]
 transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+light_color = Color(0.5294118, 0.5647059, 1, 1)
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1837683333]
