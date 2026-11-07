@@ -6,5 +6,6 @@
 [node name="Node3D" type="Node3D" unique_id=1575047435]
 
 [node name="Node3D2" parent="." unique_id=64266760 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.267975, 0, 6.537964)
 
 [node name="Node3D" parent="." unique_id=7942147 instance=ExtResource("2_lnu2h")]

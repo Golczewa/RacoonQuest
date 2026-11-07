@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="1_w4gpo"]
 [ext_resource type="PackedScene" uid="uid://4ci2ejvd1155" path="res://scenes/props/tree_with_box.tscn" id="2_6ugf7"]
+[ext_resource type="PackedScene" uid="uid://bunn0mo2ccril" path="res://scenes/props/tree.tscn" id="2_trxp7"]
 [ext_resource type="PackedScene" uid="uid://cx4jtv4imss6s" path="res://scenes/props/box.tscn" id="3_g460o"]
+[ext_resource type="PackedScene" uid="uid://d1ciccx0qcnvc" path="res://scenes/props/stone.tscn" id="4_e21fi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,18 +53,38 @@ shape = SubResource("BoxShape3D_hbjtb")
 [node name="trees" type="Node3D" parent="." unique_id=2012477037]
 
 [node name="Node3D" parent="trees" unique_id=1886063575 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -0.9581833, 0, -22.24353)
+transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -1.3123398, 0, -11.997314)
 
 [node name="Node3D2" parent="trees" unique_id=1688952918 instance=ExtResource("1_w4gpo")]
-transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -0.9776058, 0, 34.42987)
+transform = Transform3D(85.58076, 0, 0, 0, 1, 0, 0, 0, 22.05001, -0.9776058, 0, 24.668884)
 
 [node name="Node3D5" parent="trees" unique_id=597940586 instance=ExtResource("1_w4gpo")]
 transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, 33.879807, 0, 18.221832)
+visible = false
 rand_seed = 30
 
 [node name="Node3D8" parent="trees" unique_id=1013579560 instance=ExtResource("1_w4gpo")]
 transform = Transform3D(15.727349, 0, 0, 0, 1.387, 0, 0, 0, 10.137208, 33.950317, 0, -6.096344)
+visible = false
 rand_seed = 30
+
+[node name="Node3D3" parent="trees" unique_id=885908942 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3598633, 0, 2.7131348)
+
+[node name="Node3D4" parent="trees" unique_id=844067517 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.634033, 0, 2.923584)
+
+[node name="Node3D6" parent="trees" unique_id=935813724 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.210785, 0, 7.153076)
+
+[node name="Node3D7" parent="trees" unique_id=1404481197 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.476044, 0, 3.55188)
+
+[node name="Node3D9" parent="trees" unique_id=391197889 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.815948, 0, 10.105103)
+
+[node name="Node3D10" parent="trees" unique_id=1088386223 instance=ExtResource("2_trxp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.534622, 0, 8.838379)
 
 [node name="puzzle" type="Node3D" parent="." unique_id=140901573]
 
@@ -70,4 +92,7 @@ rand_seed = 30
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8817596, 0, 6.055542)
 
 [node name="Node3D2" parent="puzzle" unique_id=1032443699 instance=ExtResource("3_g460o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.519226, 0.5218506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7125854, 0.5218506, 6.4385605)
+
+[node name="StaticBody3D" parent="puzzle" unique_id=1976080715 instance=ExtResource("4_e21fi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
