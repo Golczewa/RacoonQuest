@@ -70,7 +70,6 @@ required_weight = "low"
 
 [node name="Node3D4" parent="puzzle" unique_id=2085222894 node_paths=PackedStringArray("triggers") instance=ExtResource("3_1o7kp")]
 transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -15.335007, 0.0031738281, -1.9570618)
-visible = false
 triggers = [NodePath("../Node3D"), NodePath("../Node3D2"), NodePath("../Node3D3")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="puzzle/Node3D4" unique_id=1154240968]
