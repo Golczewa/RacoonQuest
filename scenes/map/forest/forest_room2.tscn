@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bunn0mo2ccril" path="res://scenes/props/tree.tscn" id="2_trxp7"]
 [ext_resource type="PackedScene" uid="uid://cx4jtv4imss6s" path="res://scenes/props/box.tscn" id="3_g460o"]
 [ext_resource type="PackedScene" uid="uid://d1ciccx0qcnvc" path="res://scenes/props/stone.tscn" id="4_e21fi"]
+[ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="6_hink8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -92,3 +93,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7125854, 0.5218506, 6.4385
 
 [node name="StaticBody3D" parent="puzzle" unique_id=1976080715 instance=ExtResource("4_e21fi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
+
+[node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("6_hink8")]
+transform = Transform3D(80.30384, 0, 0, 0, 1, 0, 0, 0, 13.356658, 0, 0, 6.2417603)
+rand_seed = 100
+stuff_count = 25

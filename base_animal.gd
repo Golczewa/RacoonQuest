@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export_group("Physics & Puzzle Stats")
 @export var weight: float = 1.0
 @export var push_force: float = 2.0
+@export_enum("low", "medium", "high") var weight_class: String = "medium"
+
 
 @export_group("Animal Capabilities")
 @export var is_active_player: bool = false:
@@ -84,7 +86,17 @@ func _update_active_visual_state() -> void:
 
 func _get_input_direction() -> Vector3:
 	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	return Vector3(raw_input.x, 0.0, raw_input.y)
+	var camera := get_viewport().get_camera_3d()
+	if camera == null:
+		return Vector3(raw_input.x, 0.0, raw_input.y)
+	var cam_basis := camera.global_transform.basis
+	var forward := -cam_basis.z
+	forward.y = 0.0
+	forward = forward.normalized()
+	var right := cam_basis.x
+	right.y = 0.0
+	right = right.normalized()
+	return (right * raw_input.x + forward * -raw_input.y).limit_length(1.0)
 
 func _handle_movement(direction: Vector3, delta: float) -> void:
 	var is_over_speed := velocity.length() > max_speed + 0.5

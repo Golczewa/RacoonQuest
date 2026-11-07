@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b74gp2twy6ifa"]
+
+[ext_resource type="Texture2D" uid="uid://c54fxxplf4arm" path="res://assets/props/krzak.png" id="1_di44y"]
+
+[node name="Node3D" type="Node3D" unique_id=215554565]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=783904901]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.41590798, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_di44y")
