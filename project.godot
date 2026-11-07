@@ -24,6 +24,7 @@ window/stretch/aspect="expand"
 
 breakable=""
 shotable=""
+climbable=""
 
 [input]
 
