@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cgsx7rrl0tkky" path="res://scenes/player/racoon/racoon_adjusted.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://1ndkwl7k3rfe" path="res://scenes/player/racoon/projectile.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b5v4t5fgc21xx" path="res://scenes/player/boar/boar.tscn" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://buequic0uogo6" path="res://scenes/player/squirrel/squirrel.tscn" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cdjrw48uvro2m" path="res://scenes/bunny_attack_ring.tscn" id="7_u5sy4"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435 node_paths=PackedStringArray("starting_animal")]
 script = ExtResource("1_lnu2h")
@@ -30,4 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4052734, 0, -4.0322266)
 [node name="Squirrel" parent="animals" unique_id=2124011528 instance=ExtResource("5_p57ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1787415, 0, 4.385132)
 
-[node name="Level" parent="." unique_id=1082701690 instance=ExtResource("5_iywne")]
+[node name="Level" parent="." unique_id=1082701690 instance=ExtResource("6_u5sy4")]
+
+[node name="MeshInstance3D" parent="." unique_id=556871384 instance=ExtResource("7_u5sy4")]

@@ -6,7 +6,7 @@ class_name Level
 
 var animals:Array[Node]
 var curr_room:Room
-var curr_room_num:=1
+var curr_room_num:=0
 
 func _ready() -> void:
 	animals=get_parent().get_node("animals").get_children()
