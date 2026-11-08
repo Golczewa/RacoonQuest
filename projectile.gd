@@ -16,5 +16,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body == shooter:
 		return
+	if body.is_in_group("shotable"):
+		body.shatter()
 	print("Projectile hit: ", body.name)
 	queue_free()

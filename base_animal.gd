@@ -108,9 +108,11 @@ func _handle_movement(direction: Vector3, delta: float) -> void:
 	if direction != Vector3.ZERO:
 		velocity.x = move_toward(velocity.x, direction.x * max_speed, current_accel * delta)
 		velocity.z = move_toward(velocity.z, direction.z * max_speed, current_accel * delta)
+		$Visuals/AnimatedSprite3D.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, current_friction * delta)
 		velocity.z = move_toward(velocity.z, 0.0, current_friction * delta)
+		$Visuals/AnimatedSprite3D.stop()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():

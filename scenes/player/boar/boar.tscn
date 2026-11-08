@@ -2,12 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_fxdbj"]
 [ext_resource type="Script" uid="uid://csai7hq7x2yvc" path="res://scenes/player/boar/boar.gd" id="2_0cw3v"]
+[ext_resource type="Texture2D" uid="uid://df6ye6ljse1io" path="res://assets/player/dzik1.png" id="3_es8js"]
+[ext_resource type="Texture2D" uid="uid://bepa31gdxkgcw" path="res://assets/player/dzik2.png" id="4_2uvrg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxql3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_es8js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2uvrg")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cw3v"]
 radius = 0.7
 height = 2.2
 
 [node name="Boar" unique_id=1407618352 instance=ExtResource("1_fxdbj")]
+collision_mask = 5
 script = ExtResource("2_0cw3v")
 break_speed_threshold = 6.0
 dash_impulse = 5.5
@@ -21,9 +38,11 @@ weight_class = "high"
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0.64, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.24999999, 0, 0, 0, 0.24999999, 0, 1.363073, 0)
 billboard = 2
 alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_nxql3")
+animation = &"walk"
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
 shape = SubResource("CapsuleShape3D_0cw3v")

@@ -45,3 +45,6 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 		active_animal.velocity.z = transferred_velocity.z
 
 	print("Body taken: ", active_animal.name)
+
+func get_boar_rid()->RID:
+	return $animals/Boar/CollisionShape3D.get_rid()
