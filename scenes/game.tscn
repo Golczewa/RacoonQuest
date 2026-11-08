@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5v4t5fgc21xx" path="res://scenes/player/boar/boar.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://buequic0uogo6" path="res://scenes/player/squirrel/squirrel.tscn" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="6_u5sy4"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435 node_paths=PackedStringArray("starting_animal")]
 script = ExtResource("1_lnu2h")

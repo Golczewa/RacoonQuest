@@ -6,11 +6,11 @@ class_name Level
 
 var animals:Array[Node]
 var curr_room:Room
-var curr_room_num:=0
+var curr_room_num:=1
 
 func _ready() -> void:
 	animals=get_parent().get_node("animals").get_children()
-	first_room() 
+	first_room()
 
 
 
@@ -28,7 +28,7 @@ func next_room()->void:
 
 
 func first_room()->void:
-	curr_room=rooms[0].instantiate()
+	curr_room=rooms[curr_room_num].instantiate()
 	add_child(curr_room)
 	for i in animals.size():
 		animals[i].global_position=curr_room.spawns[i].global_position
