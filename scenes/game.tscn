@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="6_u5sy4"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435 node_paths=PackedStringArray("starting_animal")]
+physics_interpolation_mode = 2
 script = ExtResource("1_lnu2h")
 starting_animal = NodePath("animals/Racoon")
 camera_offset = Vector3(0.064, 15.205, -27.625)

@@ -4,7 +4,6 @@ extends AnimalCharacter
 @export var spawn_height_offset: float = 0.6
 
 func _ready() -> void:
-	super._ready()
 	weight = 1.0
 	push_force = 2.0
 

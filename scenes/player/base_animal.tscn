@@ -20,6 +20,7 @@ animations = [{
 radius = 3.0
 
 [node name="BaseAnimal" type="CharacterBody3D" unique_id=1407618352]
+physics_interpolation_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_flofl")
 

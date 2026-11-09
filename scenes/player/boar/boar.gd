@@ -4,7 +4,6 @@ extends AnimalCharacter
 @export var dash_impulse: float = 5.5 
 
 func _ready() -> void:
-	super._ready()
 	max_speed = 3.0
 	weight = 3.0
 	push_force = 8.0

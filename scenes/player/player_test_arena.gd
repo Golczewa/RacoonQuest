@@ -27,8 +27,9 @@ func _process(delta: float) -> void:
 			print("Come closer to another animal.")
 			
 	if active_animal != null:
-		var target_pos := active_animal.global_position + camera_offset
-		camera.global_position = camera.global_position.lerp(target_pos, camera_smooth_speed * delta)
+		var target_pos := active_animal.get_global_transform_interpolated().origin + camera_offset
+		var follow_weight := 1.0 - exp(-camera_smooth_speed * delta)
+		camera.global_position = camera.global_position.lerp(target_pos, follow_weight)
 
 func _possess_animal(new_animal: AnimalCharacter) -> void:
 	var transferred_velocity := Vector3.ZERO

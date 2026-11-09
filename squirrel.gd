@@ -5,7 +5,6 @@ var is_climbing: bool = false
 var climb_normal: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
-	super._ready()
 	weight = 0.3 
 	push_force = 0.5
 

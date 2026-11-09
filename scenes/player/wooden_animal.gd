@@ -27,8 +27,6 @@ const WOOD_REBOUND_ANGLE := deg_to_rad(4.0)
 @onready var facing: Node3D = $Facing
 var poses: Array[Node3D] = []
 
-var local_materials: Array[StandardMaterial3D] = []
-var previous_tint := Color(-1, -1, -1, -1)
 var resting_rotation := Vector3.ZERO
 var resting_position := Vector3.ZERO
 var topple_pivot := Vector3.ZERO
@@ -47,6 +45,7 @@ var landing_strength := 0.0
 var jump_roll := 0.0
 
 func _ready() -> void:
+	facing.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	resting_rotation = facing.rotation
 	resting_position = facing.position
 	turn_progress = 1.0 if sprite.flip_h else 0.0
@@ -56,12 +55,6 @@ func _ready() -> void:
 		var bounds := (facing.global_transform.affine_inverse() * mesh.global_transform) * mesh.get_aabb()
 		topple_pivot.z = maxf(topple_pivot.z, maxf(bounds.end.z, -bounds.position.z))
 	sprite.hide()
-	for mesh_node: MeshInstance3D in find_children("*", "MeshInstance3D", true, false):
-		var material := mesh_node.get_active_material(0) as StandardMaterial3D
-		if material != null:
-			var local_material := material.duplicate() as StandardMaterial3D
-			mesh_node.material_override = local_material
-			local_materials.append(local_material)
 	_sync_visuals()
 	_update_facing(0.0)
 
@@ -167,8 +160,4 @@ func _sync_visuals() -> void:
 		frame_index = 0
 	for index in range(poses.size()):
 		poses[index].visible = index == frame_index
-	if sprite.modulate != previous_tint:
-		previous_tint = sprite.modulate
-		for material in local_materials:
-			material.albedo_color = previous_tint
 
