@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://h1220bdr62rf" path="res://racoon.gd" id="2_an6hl"]
 [ext_resource type="Texture2D" uid="uid://c2m5fmhhgq1r0" path="res://assets/player/szoppracz1.png" id="3_5edqq"]
 [ext_resource type="Texture2D" uid="uid://belvlmnlm3sdf" path="res://assets/player/szoppracz2.png" id="4_faffu"]
+[ext_resource type="PackedScene" path="res://scenes/player/racoon/wooden_raccoon.tscn" id="5_wooden"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dox0l"]
 animations = [{
@@ -27,7 +28,10 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
 transform = Transform3D(0.2, 0, 0, 0, 0.19999999, 0, 0, 0, 0.19999999, 0, 0.79252416, 0)
+visible = false
 billboard = 2
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_dox0l")
 animation = &"walk"
+
+[node name="WoodenRaccoon" parent="Visuals" index="1" instance=ExtResource("5_wooden")]

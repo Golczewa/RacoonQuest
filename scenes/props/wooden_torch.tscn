@@ -1,0 +1,47 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/props/wooden_torch.gd" id="1_controller"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_torch/torch/torch.glb" id="2_model"]
+[ext_resource type="Shader" path="res://shaders/torch_glow.gdshader" id="3_glow"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_base"]
+radius = 0.18
+height = 0.38
+
+[sub_resource type="ShaderMaterial" id="Material_glow"]
+shader = ExtResource("3_glow")
+
+[sub_resource type="QuadMesh" id="Quad_glow"]
+material = SubResource("Material_glow")
+size = Vector2(2.0, 1.8)
+
+[node name="WoodenTorch" type="StaticBody3D" groups=["wooden_torches", "floor_seated_prop"]]
+script = ExtResource("1_controller")
+
+[node name="Model" parent="." instance=ExtResource("2_model")]
+rotation = Vector3(0, 3.1415927, 0)
+
+[node name="BaseCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.19, 0.09)
+shape = SubResource("Capsule_base")
+
+[node name="FlameLight" type="OmniLight3D" parent="."]
+position = Vector3(0, 1.24, -0.25)
+light_color = Color(1, 0.60, 0.25, 1)
+light_energy = 3.6
+light_size = 0.18
+omni_range = 6.5
+omni_attenuation = 1.35
+shadow_enabled = true
+shadow_bias = 0.025
+shadow_normal_bias = 0.8
+distance_fade_enabled = true
+distance_fade_begin = 44.0
+distance_fade_shadow = 37.0
+distance_fade_length = 8.0
+
+[node name="PaintedFlameGlow" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.24, -0.19)
+rotation = Vector3(0, 3.1415927, 0)
+cast_shadow = 0
+mesh = SubResource("Quad_glow")

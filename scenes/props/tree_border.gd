@@ -3,8 +3,9 @@ extends Node3D
 @onready var tree_pack:PackedScene=preload("res://scenes/props/tree.tscn")
 
 @export var rand_seed:=5
-@export var cell_size := 2.0
-@export var padding := 0.5 
+@export var cell_size := 2.9
+@export var padding := 0.85
+@export var yaw_variation_degrees := 18.0
 
 var generator:=RandomNumberGenerator.new()
 
@@ -30,4 +31,4 @@ func spawn_trees() -> void:
 			var tree: Node3D = tree_pack.instantiate()
 			get_parent().add_child(tree)
 			tree.global_position = to_global(local_point)
-			tree.rotation.y = generator.randf_range(0.0, TAU)
+			tree.rotation.y = deg_to_rad(generator.randf_range(-yaw_variation_degrees, yaw_variation_degrees))

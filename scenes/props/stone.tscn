@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1ciccx0qcnvc"]
 
-[ext_resource type="Texture2D" uid="uid://dnbi5tvujwdr1" path="res://assets/props/rock.png" id="2_ojopu"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/rock/rock.glb" id="2_ojopu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jiq1j"]
 size = Vector3(2.6069846, 2.6896248, 14.245213)
@@ -10,36 +10,17 @@ size = Vector3(12.593763, 4.3453007, 14.245213)
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1976080715]
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2125799648]
-transform = Transform3D(1.9, 0, 0, 0, 0.65, 0, 0, 0, 0.938, -0.12073517, 2.1925387, 0.0063476563)
-modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("2_ojopu")
+[node name="Sprite3D" parent="." unique_id=2125799648 instance=ExtResource("2_ojopu")]
+transform = Transform3D(-12.666667, 0, 0, 0, 4.3333333, 0, 0, 0, -6.2533333, -0.25373517, -0.6674613, 0.0063476563)
 
-[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1918019273]
-transform = Transform3D(1, 0, 0, 0, 0.43, 0, 0, 0, 0.494, 5.8264456, 1.3883109, 1.707861)
-modulate = Color(0.65012825, 0.6501283, 0.65012825, 1)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("2_ojopu")
+[node name="Sprite3D2" parent="." unique_id=1918019273 instance=ExtResource("2_ojopu")]
+transform = Transform3D(-6.6666667, 0, 0, 0, 2.8666667, 0, 0, 0, -3.2933333, 5.7564456, -0.5036891, 1.707861)
 
-[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1147894874]
-transform = Transform3D(1, 0, 0, 0, 0.477, 0, 0, 0, 0.494, 0.5245209, 1.3243089, -1.6515551)
-modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("2_ojopu")
+[node name="Sprite3D3" parent="." unique_id=1147894874 instance=ExtResource("2_ojopu")]
+transform = Transform3D(-6.6666667, 0, 0, 0, 3.18, 0, 0, 0, -3.2933333, 0.4545209, -0.7744911, -1.6515551)
 
-[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1802412949]
-transform = Transform3D(1.7, 0, 0, 0, 1.578, 0, 0, 0, 1.146, -0.5723765, 6.7235866, 2.857544)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("2_ojopu")
+[node name="Sprite3D4" parent="." unique_id=1802412949 instance=ExtResource("2_ojopu")]
+transform = Transform3D(-11.333333, 0, 0, 0, 10.52, 0, 0, 0, -7.64, -0.6913765, -0.2196134, 2.857544)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1657744997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.757641, 1.4157352, 0.16687965)

@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/models/wooden_bush/krzak_block.glb" id="1_model"]
+
+[node name="WoodenBush" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_model")]
+rotation = Vector3(0, 2.7925268, 0)
+scale = Vector3(1.15, 1.15, 1.15)

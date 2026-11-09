@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/player/wooden_animal.gd" id="1_controller"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_animals/squirrel_frame_0/squirrel_frame_0.glb" id="2_idle"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_animals/squirrel_frame_1/squirrel_frame_1.glb" id="3_walk"]
+
+[node name="WoodenSquirrel" type="Node3D"]
+script = ExtResource("1_controller")
+
+[node name="Facing" type="Node3D" parent="."]
+rotation = Vector3(0, 0, 0)
+
+[node name="Frame0" parent="Facing" instance=ExtResource("2_idle")]
+rotation = Vector3(0, 3.1415927, 0)
+
+[node name="Frame1" parent="Facing" instance=ExtResource("3_walk")]
+rotation = Vector3(0, 3.1415927, 0)
+visible = false

@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bunn0mo2ccril" path="res://scenes/props/tree.tscn" id="2_trxp7"]
 [ext_resource type="PackedScene" uid="uid://d1ciccx0qcnvc" path="res://scenes/props/stone.tscn" id="4_e21fi"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="6_hink8"]
+[ext_resource type="PackedScene" path="res://scenes/props/wooden_bush.tscn" id="7_wooden_bush"]
+[ext_resource type="PackedScene" path="res://scenes/props/felt_forest_floor.tscn" id="8_felt_floor"]
+[ext_resource type="Material" path="res://assets/materials/felt/forest_felt.tres" id="9_felt_material"]
+[ext_resource type="Curve3D" path="res://assets/materials/felt/forest_walk_path.tres" id="10_walk_path"]
+[ext_resource type="PackedScene" path="res://scenes/props/wooden_torch.tscn" id="11_torch"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,13 +21,21 @@ sky_material = SubResource("ProceduralSkyMaterial_evdi3")
 
 [sub_resource type="Environment" id="Environment_10ae1"]
 background_mode = 2
+background_energy_multiplier = 0.22
 sky = SubResource("Sky_trxp7")
-glow_intensity = 1.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_466t5"]
-albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.26, 0.34, 0.48, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.9
+glow_enabled = true
+glow_intensity = 1.05
+glow_bloom = 0.04
+glow_hdr_threshold = 0.95
+glow_hdr_scale = 0.45
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gx5hh"]
+subdivide_width = 150
+subdivide_depth = 130
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbjtb"]
 size = Vector3(118.081635, 1, 76.40268)
@@ -42,18 +55,56 @@ environment = SubResource("Environment_10ae1")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=847738983]
 transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
 light_color = Color(0.5294118, 0.5647059, 1, 1)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=590778289]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2027665528]
 transform = Transform3D(60.068813, 0, 0, 0, 1, 0, 0, 0, 52.193653, -0.04498291, 0.018432617, 0.020050049)
-material_override = SubResource("StandardMaterial3D_466t5")
+material_override = ExtResource("9_felt_material")
 mesh = SubResource("PlaneMesh_gx5hh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2118167617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31565857, -0.52958965, 0.31455994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31565857, -0.48156738, 0.31455994)
 shape = SubResource("BoxShape3D_hbjtb")
+
+[node name="FeltFloor" parent="." unique_id=573793259 instance=ExtResource("8_felt_floor")]
+
+[node name="Torches" type="Node3D" parent="." unique_id=1190061085]
+
+[node name="TorchEastPath" parent="Torches" unique_id=973677918 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9563048, 0, -0.2923717, 0, 1, 0, 0.2923717, 0, 0.9563048, 30, 0.018432617, 5.4)
+
+[node name="TorchSpawnLeft" parent="Torches" unique_id=1043646039 instance=ExtResource("11_torch")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 23, 0.018432617, 5.05)
+
+[node name="TorchSpawnRight" parent="Torches" unique_id=76775385 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 16.2, 0.018432617, 7.15)
+
+[node name="TorchClearingLeft" parent="Torches" unique_id=1329264073 instance=ExtResource("11_torch")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 7.1, 0.018432617, 3.75)
+
+[node name="TorchApproach" parent="Torches" unique_id=1107999671 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9781476, 0, -0.2079117, 0, 1, 0, 0.2079117, 0, 0.9781476, 11.5, 0.018432617, 3.75)
+
+[node name="TorchClearingRight" parent="Torches" unique_id=624627128 instance=ExtResource("11_torch")]
+transform = Transform3D(0.95105654, 0, -0.309017, 0, 1, 0, 0.309017, 0, 0.95105654, -3.8, 0.018432617, 6.8)
+
+[node name="TorchBehindOak" parent="Torches" unique_id=600248697 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9961947, 0, 0.08715574, 0, 1, 0, -0.08715574, 0, 0.9961947, 0.4, 0.018432617, 10.4)
+
+[node name="TorchWestBend" parent="Torches" unique_id=133629630 instance=ExtResource("11_torch")]
+transform = Transform3D(0.99254614, 0, -0.12186935, 0, 1, 0, 0.12186935, 0, 0.99254614, -13, 0.018432617, 4.9)
+
+[node name="TorchWestPath" parent="Torches" unique_id=1102030951 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, -23, 0.018432617, 7.6)
+
+[node name="TorchWestCrossing" parent="Torches" unique_id=449983789 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -18.6, 0.018432617, 7.9)
+
+[node name="TorchExit" parent="Torches" unique_id=1261351486 instance=ExtResource("11_torch")]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, -31, 0.018432617, 4.65)
 
 [node name="trees" type="Node3D" parent="." unique_id=2012477037]
 
@@ -74,22 +125,22 @@ visible = false
 rand_seed = 30
 
 [node name="Node3D3" parent="trees" unique_id=885908942 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3598633, 0, 2.7131348)
+transform = Transform3D(0.98162717, 0, -0.190809, 0, 1, 0, 0.190809, 0, 0.98162717, -5.3598633, 0, 2.7131348)
 
 [node name="Node3D4" parent="trees" unique_id=844067517 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.634033, 0, 2.923584)
+transform = Transform3D(0.9612617, 0, 0.27563736, 0, 1, 0, -0.27563736, 0, 0.9612617, -19.634033, 0, 2.923584)
 
 [node name="Node3D6" parent="trees" unique_id=935813724 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.210785, 0, 7.153076)
+transform = Transform3D(0.9702957, 0, -0.2419219, 0, 1, 0, 0.2419219, 0, 0.9702957, 14.210785, 0, 7.153076)
 
 [node name="Node3D7" parent="trees" unique_id=1404481197 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.476044, 0, 3.55188)
+transform = Transform3D(0.98768836, 0, 0.15643448, 0, 1, 0, -0.15643448, 0, 0.98768836, 34.476044, 0, 3.55188)
 
 [node name="Node3D9" parent="trees" unique_id=391197889 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.815948, 0, 10.105103)
+transform = Transform3D(0.95105654, 0, -0.309017, 0, 1, 0, 0.309017, 0, 0.95105654, 28.815948, 0, 10.105103)
 
 [node name="Node3D10" parent="trees" unique_id=1088386223 instance=ExtResource("2_trxp7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.534622, 0, 8.838379)
+transform = Transform3D(0.97437006, 0, 0.22495104, 0, 1, 0, -0.22495104, 0, 0.97437006, -24.534622, 0, 8.838379)
 
 [node name="puzzle" type="Node3D" parent="." unique_id=140901573]
 
@@ -102,10 +153,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
 [node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("6_hink8")]
 transform = Transform3D(80.30384, 0, 0, 0, 1, 0, 0, 0, 13.356658, 0, 0, 6.2417603)
 rand_seed = 100
-stuff_count = 25
+stuff_count = 80
+path_half_width = 1.4
+clear_path = ExtResource("10_walk_path")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1243121919]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.117374, 0.42917633, 6.1970825)
+
+[node name="WoodenBush" parent="." unique_id=1959403276 instance=ExtResource("7_wooden_bush")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4, 0.02, 7.4)
 
 [node name="Marker3D2" type="Marker3D" parent="." unique_id=286465186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.003864, 0.42917633, 3.921875)

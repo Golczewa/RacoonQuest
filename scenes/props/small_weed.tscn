@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://bjh4jpuly8d3d"]
 
-[ext_resource type="Texture2D" uid="uid://cebuvrx5tn5rx" path="res://assets/props/trawka.png" id="1_r47va"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/grass_small/grass_small.glb" id="1_r47va"]
 
 [node name="Node3D" type="Node3D" unique_id=215554565]
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=783904901]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.49642503, 0)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("1_r47va")
+[node name="Sprite3D" parent="." unique_id=783904901 instance=ExtResource("1_r47va")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0165, 0.02, 0)

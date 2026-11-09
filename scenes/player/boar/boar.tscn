@@ -2,6 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_fxdbj"]
 [ext_resource type="Script" uid="uid://csai7hq7x2yvc" path="res://scenes/player/boar/boar.gd" id="2_0cw3v"]
+[ext_resource type="PackedScene" path="res://scenes/player/boar/wooden_boar.tscn" id="3_wooden"]
+[ext_resource type="Texture2D" path="res://assets/dzik1.png" id="4_art0"]
+[ext_resource type="Texture2D" path="res://assets/dzik2.png" id="5_art1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boar"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("4_art0")}, {"duration": 1.0, "texture": ExtResource("5_art1")}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0cw3v"]
 radius = 0.7
@@ -24,6 +35,12 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0.64, 0)
 billboard = 2
 alpha_cut = 2
+visible = false
+sprite_frames = SubResource("SpriteFrames_boar")
+animation = &"walk"
+
+[node name="WoodenBoar" parent="Visuals" index="1" instance=ExtResource("3_wooden")]
+position = Vector3(0, -0.1, 0)
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
 shape = SubResource("CapsuleShape3D_0cw3v")

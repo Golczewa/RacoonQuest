@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://shaders/felt_floor.gdshader" id="1_felt"]
+[ext_resource type="Texture2D" path="res://assets/materials/felt/felt_fibers.png" id="2_fibers"]
+
+[resource]
+shader = ExtResource("1_felt")
+shader_parameter/felt_fibers = ExtResource("2_fibers")
+shader_parameter/felt_color = Color(0.18, 0.255, 0.19, 1)
+shader_parameter/tile_meters = 10.0
+shader_parameter/fiber_relief = 0.35
