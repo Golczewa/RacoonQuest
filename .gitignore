@@ -8,10 +8,11 @@
 /.vscode/
 __pycache__/
 /art/
-/docs/
+/docs/*
 /scripts/tools/
 [Rr][Ee][Aa][Dd][Mm][Ee]
 [Rr][Ee][Aa][Dd][Mm][Ee].*
+/AGENTS.md
 *.log
 
 # Art source files, backups, archives and captures
