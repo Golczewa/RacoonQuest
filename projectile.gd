@@ -2,6 +2,7 @@ extends Area3D
 
 @export var speed: float = 14.0
 @export var lifetime: float = 2.5
+@export var power: float = 2.0
 
 var direction: Vector3 = Vector3.FORWARD
 var shooter: Node3D = null
@@ -9,6 +10,7 @@ var shooter: Node3D = null
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)
+	power = 2.0
 
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta

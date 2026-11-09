@@ -8,6 +8,9 @@ class_name Vamp_bunny
 @onready var shoot = preload("res://scenes/shoot.tscn")
 
 
+@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+var bunny = self
+
 signal less_hp
 
 enum {
@@ -33,10 +36,12 @@ func _on_attack_zone_body_entered(body: Node3D) -> void:
 	if body is AnimalCharacter:
 		state = ALERT
 		shoot_timer.start()
-	if body is StaticBody3D:
+
+func _on_hitted_area_entered(area: Area3D) -> void:
+	if "power" in area:
 		less_hp.emit()
-	
-		
+
+
 
 	
 #func _on_attack_zone_body_exited(body: Node3D) -> void:
@@ -57,6 +62,10 @@ func _physics_process(delta: float) -> void:
 			var min_distance = 3.0
 			if distance_to_target > min_distance:
 				var direction = (target.global_transform.origin - global_transform.origin).normalized()
+				if  direction.x > 0:
+					animated_sprite_3d.flip_h = true
+				elif direction.x < 0:
+					animated_sprite_3d.flip_h = false
 				var target_velocity = direction * 30 
 				velocity.x =  target_velocity.x * delta * 15
 				velocity.z = target_velocity.z * delta * 15

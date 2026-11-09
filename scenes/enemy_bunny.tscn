@@ -32,15 +32,16 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p354l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uc8i3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x8q4s"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3rqwm"]
 
 [node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018]
 script = ExtResource("2_x8q4s")
-speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295305302]
-transform = Transform3D(1, 0, 0, 0, 1.5964628, 0, 0, 0, 1, 0, 0.79227304, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79227304, 0)
 shape = SubResource("BoxShape3D_spkyn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=938733881]
@@ -68,12 +69,19 @@ wait_time = 10.0
 
 [node name="Sprite3D" parent="." unique_id=82122180 node_paths=PackedStringArray("vamp") instance=ExtResource("3_6iwxn")]
 transform = Transform3D(0.77256566, 0, 0, 0, 0.70324993, 0, 0, 0, 1, 0, 1.6366088, 0)
-texture = SubResource("ViewportTexture_uc8i3")
+texture = SubResource("ViewportTexture_x8q4s")
 vamp = NodePath("..")
 
 [node name="enemy_bunny" type="Node3D" parent="." unique_id=2053436012]
+
+[node name="hitted" type="Area3D" parent="." unique_id=535021750]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitted" unique_id=1281312941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6337949, 0)
+shape = SubResource("BoxShape3D_3rqwm")
 
 [connection signal="body_entered" from="attack_zone" to="." method="_on_attack_zone_body_entered"]
 [connection signal="body_exited" from="attack_zone" to="." method="_on_attack_zone_body_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]
+[connection signal="area_entered" from="hitted" to="." method="_on_hitted_area_entered"]

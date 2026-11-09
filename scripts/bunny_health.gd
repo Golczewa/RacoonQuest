@@ -15,8 +15,8 @@ func update():
 	$SubViewport/Panel/ProgressBar.value -= damage
 	
 	if $SubViewport/Panel/ProgressBar.value <= 0:
-		print("You died")
-		get_tree().change_scene_to_file("res://scenes/map/room_boss.tscn")
+		print("Enemy died")
+		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
