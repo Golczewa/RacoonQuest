@@ -37,6 +37,7 @@ viewport_path = NodePath("SubViewport")
 
 [node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018]
 script = ExtResource("2_x8q4s")
+speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295305302]
 transform = Transform3D(1, 0, 0, 0, 1.5964628, 0, 0, 0, 1, 0, 0.79227304, 0)

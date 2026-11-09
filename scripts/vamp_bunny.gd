@@ -1,10 +1,12 @@
 extends CharacterBody3D
+
 class_name Vamp_bunny
 
 @export var player: AnimalCharacter
 @export var bullet: StaticBody3D
 @export var speed = 30
 @onready var shoot = preload("res://scenes/shoot.tscn")
+
 
 signal less_hp
 
@@ -31,6 +33,10 @@ func _on_attack_zone_body_entered(body: Node3D) -> void:
 	if body is AnimalCharacter:
 		state = ALERT
 		shoot_timer.start()
+	if body is StaticBody3D:
+		less_hp.emit()
+	
+		
 
 	
 #func _on_attack_zone_body_exited(body: Node3D) -> void:
@@ -51,7 +57,7 @@ func _physics_process(delta: float) -> void:
 			var min_distance = 3.0
 			if distance_to_target > min_distance:
 				var direction = (target.global_transform.origin - global_transform.origin).normalized()
-				var target_velocity = direction * speed 
+				var target_velocity = direction * 30 
 				velocity.x =  target_velocity.x * delta * 15
 				velocity.z = target_velocity.z * delta * 15
 				move_and_slide()

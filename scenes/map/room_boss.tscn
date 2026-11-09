@@ -47,5 +47,4 @@ stuff_count = 40
 transform = Transform3D(27.195969, 0, 0, 0, 0.7798891, 0, 0, 0, 43.207188, 0, -0.3400091, 0)
 shape = SubResource("BoxShape3D_fcm86")
 
-[node name="enemy_bunny" parent="." unique_id=2053436012 instance=ExtResource("2_2gb3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3565521, 0.67618334, 2.8324695)
+[node name="vamp_bunny" parent="." unique_id=1091209018 instance=ExtResource("2_2gb3j")]

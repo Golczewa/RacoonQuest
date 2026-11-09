@@ -6,7 +6,6 @@ var damage = 10
 
 
 func _ready() -> void:
-	$SubViewport/Panel/ProgressBar.max_value = max_hp
 	$SubViewport/Panel/ProgressBar.value = max_hp
 	
 	vamp.less_hp.connect(update)
