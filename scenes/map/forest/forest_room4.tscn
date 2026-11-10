@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cee113hpm3aa5"]
+
+[ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_s3qxq"]
+[ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="2_br7om"]
+[ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemy_bunny.tscn" id="3_7eswh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3qxq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_trxp7"]
+sky_material = SubResource("ProceduralSkyMaterial_s3qxq")
+
+[sub_resource type="Environment" id="Environment_ktrh5"]
+background_mode = 2
+sky = SubResource("Sky_trxp7")
+glow_intensity = 1.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wrw1q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edrg1"]
+albedo_color = Color(6.256998e-07, 0.25162107, 0.18447244, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q71ke"]
+size = Vector3(26.936462, 1, 41.49164)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_br7om"]
+size = Vector3(3.3127441, 2.0805664, 13.045288)
+
+[node name="ForestRoom4" type="Node3D" unique_id=1015797948 node_paths=PackedStringArray("spawns", "exit")]
+script = ExtResource("1_s3qxq")
+spawns = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3")]
+exit = NodePath("Area3D")
+metadata/_custom_type_script = "uid://ds7qxng1piyxi"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=697222398]
+environment = SubResource("Environment_ktrh5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108751178]
+transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+light_color = Color(0.5294118, 0.5647059, 1, 1)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276899903]
+transform = Transform3D(13.618382, 0, 0, 0, 3.0085306, 0, 0, 0, 21.277075, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wrw1q")
+surface_material_override/0 = SubResource("StandardMaterial3D_edrg1")
+
+[node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("2_br7om")]
+transform = Transform3D(26.80072, 0, 0, 0, 1.5391717, 0, 0, 0, 42.192627, 0.21358776, -0.06726694, 0.18405247)
+visible = false
+rand_seed = 8
+stuff_count = 40
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=649301757]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=503759864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113220215, -0.3400091, 0.08364868)
+shape = SubResource("BoxShape3D_q71ke")
+
+[node name="vamp_bunny" parent="." unique_id=1091209018 instance=ExtResource("3_7eswh")]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1974288785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12444973, 0.42917633, -5.4937267)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=1720415893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6005862, 0.42917633, -6.6867533)
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=405217134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4161339, 0.42917633, -6.6344757)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=238829603]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.035198, 0, -10.840532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1455273797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+shape = SubResource("BoxShape3D_br7om")

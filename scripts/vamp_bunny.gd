@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Vamp_bunny
 
-@export var player: AnimalCharacter
+@export var player: Node3D
 @export var bullet: StaticBody3D
 @export var speed = 30
 @onready var shoot = preload("res://scenes/shoot.tscn")
@@ -18,17 +18,16 @@ enum {
 	ALERT,
 }
 var acceleration = 15
-var target 
+var target:AnimalCharacter
 const TURN_SPEED = 2
 @onready var raycast = $RayCast3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var boom_timer: Timer = $BoomTimer
 
 var state = IDLE
-var main_controller
 
 func _ready() -> void:
-	main_controller= get_parent().get_parent()
+	player=get_tree().get_first_node_in_group("player")
 
 			
 
@@ -53,7 +52,7 @@ func _on_hitted_area_entered(area: Area3D) -> void:
 func _physics_process(delta: float) -> void:
 	match state:
 		ALERT:
-			target = main_controller.active_animal
+			target = player.active_animal
 			raycast.look_at(target.global_transform.origin, Vector3.UP)
 			raycast.global_transform.origin = global_transform.origin 
 			raycast.target_position = Vector3(0,0,-10)

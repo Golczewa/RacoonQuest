@@ -6,7 +6,7 @@ class_name Level
 
 var animals:Array[Node]
 var curr_room:Room
-var curr_room_num:=0
+var curr_room_num:=3
 
 func _ready() -> void:
 	animals=get_tree().get_first_node_in_group("player").get_animals()

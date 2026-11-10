@@ -32,20 +32,22 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p354l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_x8q4s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3qpeg"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3rqwm"]
+size = Vector3(0.89733887, 1.3267822, 1)
 
 [node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018]
 script = ExtResource("2_x8q4s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295305302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79227304, 0)
+visible = false
 shape = SubResource("BoxShape3D_spkyn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=938733881]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.62683666, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.7262194, 0)
 sprite_frames = SubResource("SpriteFrames_sjb86")
 autoplay = "default"
 
@@ -59,7 +61,7 @@ shape = SubResource("BoxShape3D_p354l")
 [node name="ShootTimer" type="Timer" parent="." unique_id=312836749]
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=473361434]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.49626625, 0)
 target_position = Vector3(0, 0, 1)
 
 [node name="BoomTimer" type="Timer" parent="." unique_id=1697876881]
@@ -69,15 +71,13 @@ wait_time = 10.0
 
 [node name="Sprite3D" parent="." unique_id=82122180 node_paths=PackedStringArray("vamp") instance=ExtResource("3_6iwxn")]
 transform = Transform3D(0.77256566, 0, 0, 0, 0.70324993, 0, 0, 0, 1, 0, 1.6366088, 0)
-texture = SubResource("ViewportTexture_x8q4s")
+texture = SubResource("ViewportTexture_3qpeg")
 vamp = NodePath("..")
-
-[node name="enemy_bunny" type="Node3D" parent="." unique_id=2053436012]
 
 [node name="hitted" type="Area3D" parent="." unique_id=535021750]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitted" unique_id=1281312941]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6337949, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008728027, 0.66339695, 0)
 shape = SubResource("BoxShape3D_3rqwm")
 
 [connection signal="body_entered" from="attack_zone" to="." method="_on_attack_zone_body_entered"]

@@ -1,6 +1,7 @@
 extends Area3D
-@export var speed: float = 14.0
+@export var speed: float = 5.0
 var direction:Vector3
+var dmg:=1
 
 
 func _physics_process(delta: float) -> void:
@@ -9,4 +10,8 @@ func _physics_process(delta: float) -> void:
 		
 		
 func _on_body_entered(body: CharacterBody3D) -> void:
-	queue_free()
+	print("hit")
+	var player=get_tree().get_first_node_in_group("player")
+	if(body==player.active_animal):
+		player.take_dmg(dmg)
+

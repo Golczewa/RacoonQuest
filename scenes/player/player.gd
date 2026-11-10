@@ -6,8 +6,11 @@ extends Node3D
 
 @onready var camera: Camera3D = $Camera3D
 
+const MAX_HEALTH:=5
+
 var active_animal: AnimalCharacter
-	
+var health=MAX_HEALTH
+
 func _ready() -> void:
 	for child in get_children():
 		if child is AnimalCharacter:
@@ -55,3 +58,7 @@ func get_animals()->Array[Node]:
 		if child is AnimalCharacter:
 			animals.append(child)
 	return animals
+
+func take_dmg(dmg:int)->void:
+	health-=dmg
+	print("player took ",dmg," damage")
