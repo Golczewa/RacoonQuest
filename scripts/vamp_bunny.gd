@@ -3,9 +3,11 @@ extends CharacterBody3D
 class_name VampBunny
 
 var player: Node3D
-@export var speed = 30
-@export var shoot_hight:float=1
-@export var max_hp:=10
+@export var speed = 3
+@export var shoot_hight: float = 1
+@export var max_hp := 10
+@export var min_distance: float = 2
+@export var max_distance: float = 4
 
 @onready var shoot = preload("res://scenes/shoot.tscn")
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
@@ -17,55 +19,77 @@ enum {
 	ALERT,
 }
 var acceleration = 15
-var target:AnimalCharacter
+var target: AnimalCharacter
 const TURN_SPEED = 2
 @onready var raycast = $RayCast3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var boom_timer: Timer = $BoomTimer
+@onready var ring = $MeshInstance3D
+@onready var sprite = $AnimatedSprite3D
 
 var state = IDLE
-var hp:=max_hp
+var hp := max_hp
+var can_shoot = true
+var shot_count := randi_range(4, 6)
+var is_ring_active = false
+
 
 func _ready() -> void:
-	player=get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
+	state = ALERT
 
-			
-
-func _on_attack_zone_body_entered(body: Node3D) -> void:
-	if body is AnimalCharacter:
-		state = ALERT
-		shoot_timer.start()
-
-	
-#func _on_attack_zone_body_exited(body: Node3D) -> void:
-	#state = IDLE
-	#shoot_timer.stop()
-	#target = null
-	#player = null
 
 func _physics_process(delta: float) -> void:
+	if is_ring_active:
+		return
+	target = player.active_animal
+	raycast.look_at(target.global_transform.origin + Vector3(0, shoot_hight, 0), Vector3.UP)
+	raycast.global_transform.origin = global_transform.origin + Vector3(0, shoot_hight, 0)
+	raycast.target_position = Vector3(0, 0, -10) + Vector3(0, shoot_hight, 0)
+	raycast.force_raycast_update()
+	var distance_to_target = global_transform.origin.distance_to(target.global_transform.origin)
 	match state:
 		ALERT:
-			target = player.active_animal
-			raycast.look_at(target.global_transform.origin+Vector3(0,shoot_hight,0), Vector3.UP)
-			raycast.global_transform.origin = global_transform.origin+Vector3(0,shoot_hight,0)
-			raycast.target_position = Vector3(0,0,-10)+Vector3(0,shoot_hight,0)
-			raycast.force_raycast_update()
-			var distance_to_target = global_transform.origin.distance_to(target.global_transform.origin)
-			var min_distance = 3.0
-			if distance_to_target > min_distance:
-				var direction = (target.global_transform.origin - global_transform.origin).normalized()
-				if  direction.x > 0:
-					animated_sprite_3d.flip_h = true
-				elif direction.x < 0:
-					animated_sprite_3d.flip_h = false
-				var target_velocity = direction * 30 
-				velocity.x =  target_velocity.x * delta * 15
-				velocity.z = target_velocity.z * delta * 15
-				move_and_slide()
+			var direction: Vector3
+			if distance_to_target < min_distance:
+				direction = -(target.global_transform.origin - global_transform.origin).normalized()
+				sprite.play("default")
+			elif max_distance > distance_to_target and distance_to_target > min_distance:
+				direction = Vector3.ZERO
+				sprite.stop()
+			elif max_distance < distance_to_target:
+				sprite.play("default")
+				direction = (target.global_transform.origin - global_transform.origin).normalized()
+			if direction.x > 0:
+				animated_sprite_3d.flip_h = true
+			elif direction.x < 0:
+				animated_sprite_3d.flip_h = false
+			var target_velocity = direction * speed
+			if shot_count == 0:
+				ring_attack()
+			else:
+				shoot_attack()
+			velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
+			velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
+			move_and_slide()
 
-				
+
 func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
+
+
+func take_dmg(dmg: int) -> void:
+	if is_ring_active:
+		return
+	hp -= dmg
+	if hp <= 0:
+		queue_free()
+	less_hp.emit()
+
+
+func shoot_attack() -> void:
+	if !can_shoot:
+		return
 	if raycast.is_colliding():
 		var hit = raycast.get_collider()
 		if hit is AnimalCharacter:
@@ -77,9 +101,18 @@ func _on_shoot_timer_timeout() -> void:
 			var direction = (collision_point - origin).normalized()
 			shoot_temp.look_at_from_position(origin + direction, Vector3.UP)
 			shoot_temp.direction = direction
-			
-			
-func take_dmg(dmg:int)->void:
-	hp-=dmg
-	less_hp.emit()
-	
+			can_shoot = false
+			shot_count -= 1
+			shoot_timer.start()
+
+
+func ring_attack(attack_time := 5.0) -> void:
+	shot_count = randi_range(4, 6)
+	is_ring_active = true
+	var tween := create_tween()
+	tween.tween_property(sprite, "modulate", Color.RED, attack_time)
+	await tween.finished
+	sprite.modulate = Color.WHITE
+	ring.start(global_position, self)
+	await ring.finished
+	is_ring_active = false

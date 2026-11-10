@@ -1,6 +1,7 @@
 extends MeshInstance3D
 
 signal target_hit(body: Node3D)
+signal finished
 
 @export var ray_count := 180
 @export var max_range := 8.0
@@ -8,7 +9,7 @@ signal target_hit(body: Node3D)
 @export var speed := 12.0
 @export var ray_height := 0.5
 @export var mesh_height := 0.03
-@export var damage := 10
+@export var damage := 1
 @export var hit_margin := 0.4
 @export_flags_3d_physics var wall_mask := 1
 
@@ -19,9 +20,12 @@ var r_out := 0.0
 var prev_r_in := 0.0
 var active := false
 var already_hit := false
+var player
 
 func _ready() -> void:
 	top_level = true
+	player=get_tree().get_first_node_in_group("player")
+
 
 func start(from: Vector3, source: CollisionObject3D = null) -> void:
 	origin = from
@@ -57,24 +61,18 @@ func start(from: Vector3, source: CollisionObject3D = null) -> void:
 func _physics_process(delta: float) -> void:
 	if not active:
 		return
-
 	r_out += speed * delta
 	if r_out - ring_width > max_range:
 		active = false
 		mesh = null
+		finished.emit()
 		return
-
 	_rebuild_mesh(maxf(r_out - ring_width, 0.0), r_out)
-
 	if not already_hit:
-		var target = get_tree().current_scene.active_animal
+		var target=player.active_animal
 		if is_instance_valid(target) and is_hit(target):
 			already_hit = true
-			target_hit.emit(target)
-			print("hit something")
-			if target.has_method("take_damage"):
-				target.take_damage(damage)
-
+			player.take_dmg(damage)
 	prev_r_in = maxf(r_out - ring_width, 0.0)
 
 func _is_target(col: Object, target: Node3D) -> bool:
@@ -115,7 +113,6 @@ func _rebuild_mesh(r_in: float, r_o: float) -> void:
 
 	for i in ray_count:
 		var j := (i + 1) % ray_count
-		# obie sąsiednie krawędzie muszą być "otwarte", inaczej pomijamy kawałek
 		if dists[i] <= r_in or dists[j] <= r_in:
 			continue
 		var a0 := TAU * float(i) / ray_count
