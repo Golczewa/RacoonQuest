@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cyw6hnqtq8g4"]
+
+[ext_resource type="Script" uid="uid://1m50db31aua6" path="res://scripts/bunny_health.gd" id="1_qtwkt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3rkuo"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snmsy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcm86"]
+bg_color = Color(0.61218274, 0.39369574, 0.3285493, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45064795, 0.45064837, 0.45064813, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft7e5"]
+bg_color = Color(0.67720073, 0.35219628, 0.36378828, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.43827727, 0.4382774, 0.43827713, 1)
+
+[node name="Sprite3D" type="Sprite3D" unique_id=82122180]
+billboard = 1
+texture_filter = 2
+texture = SubResource("ViewportTexture_3rkuo")
+script = ExtResource("1_qtwkt")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1661325672]
+transparent_bg = true
+size = Vector2i(160, 24)
+
+[node name="Panel" type="Panel" parent="SubViewport" unique_id=242699216]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_snmsy")
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport/Panel" unique_id=1213467784]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_fcm86")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ft7e5")
+value = 100.0
