@@ -5,6 +5,7 @@ class_name VampBunny
 var player: Node3D
 @export var speed = 30
 @export var shoot_hight:float=1
+@export var max_hp:=10
 
 @onready var shoot = preload("res://scenes/shoot.tscn")
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
@@ -23,6 +24,7 @@ const TURN_SPEED = 2
 @onready var boom_timer: Timer = $BoomTimer
 
 var state = IDLE
+var hp:=max_hp
 
 func _ready() -> void:
 	player=get_tree().get_first_node_in_group("player")
@@ -33,12 +35,6 @@ func _on_attack_zone_body_entered(body: Node3D) -> void:
 	if body is AnimalCharacter:
 		state = ALERT
 		shoot_timer.start()
-
-func _on_hitted_area_entered(area: Area3D) -> void:
-	if "power" in area:
-		less_hp.emit()
-
-
 
 	
 #func _on_attack_zone_body_exited(body: Node3D) -> void:
@@ -80,6 +76,10 @@ func _on_shoot_timer_timeout() -> void:
 			shoot_temp.global_transform.origin = origin
 			var direction = (collision_point - origin).normalized()
 			shoot_temp.look_at_from_position(origin + direction, Vector3.UP)
-			shoot_temp.get_node("enemy_shoot").direction = direction
+			shoot_temp.direction = direction
 			
 			
+func take_dmg(dmg:int)->void:
+	hp-=dmg
+	less_hp.emit()
+	

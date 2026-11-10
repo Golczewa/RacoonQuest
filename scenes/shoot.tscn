@@ -5,16 +5,14 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fcm86"]
 
-[node name="shoot" type="Node3D" unique_id=931152014]
-
-[node name="enemy_shoot" type="Area3D" parent="." unique_id=1560292374]
+[node name="enemy_shoot" type="Area3D" unique_id=1560292374]
 script = ExtResource("1_nsl4x")
 
-[node name="Sprite3D" type="Sprite3D" parent="enemy_shoot" unique_id=210478416]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=210478416]
 transform = Transform3D(0.2, 0, 0, 0, 0.208, 0, 0, 0, 0.561, 0, 0.39144963, 0)
 billboard = 2
 texture = ExtResource("2_nsl4x")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_shoot" unique_id=2060454826]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2060454826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38018692, 0)
 shape = SubResource("SphereShape3D_fcm86")

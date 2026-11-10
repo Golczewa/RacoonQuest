@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyw6hnqtq8g4" path="res://scenes/bunny_health.tscn" id="3_6iwxn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spkyn"]
-size = Vector3(1, 0.85302734, 1)
+size = Vector3(0.8685913, 1.3085938, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn60o"]
 atlas = ExtResource("2_m0swm")
@@ -35,15 +35,11 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_x8q4s"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3rqwm"]
-size = Vector3(0.89733887, 1.3267822, 1)
-
-[node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018]
+[node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018 groups=["enemy"]]
 script = ExtResource("2_x8q4s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1295305302]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79227304, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00015258789, 0.6599488, 0)
 shape = SubResource("BoxShape3D_spkyn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=938733881]
@@ -74,14 +70,7 @@ transform = Transform3D(0.77256566, 0, 0, 0, 0.70324993, 0, 0, 0, 1, 0, 1.636608
 texture = SubResource("ViewportTexture_x8q4s")
 vamp = NodePath("..")
 
-[node name="hitted" type="Area3D" parent="." unique_id=535021750]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hitted" unique_id=1281312941]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008728027, 0.66339695, 0)
-shape = SubResource("BoxShape3D_3rqwm")
-
 [connection signal="body_entered" from="attack_zone" to="." method="_on_attack_zone_body_entered"]
 [connection signal="body_exited" from="attack_zone" to="." method="_on_attack_zone_body_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]
-[connection signal="area_entered" from="hitted" to="." method="_on_hitted_area_entered"]
