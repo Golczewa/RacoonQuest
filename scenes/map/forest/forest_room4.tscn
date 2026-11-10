@@ -59,6 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113220215, -0.3400091, 0.
 shape = SubResource("BoxShape3D_q71ke")
 
 [node name="vamp_bunny" parent="." unique_id=1091209018 instance=ExtResource("3_7eswh")]
+shoot_hight = 0.5
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1974288785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12444973, 0.42917633, -5.4937267)

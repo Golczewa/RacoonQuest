@@ -1,6 +1,6 @@
 extends Sprite3D
 
-@export var vamp: Vamp_bunny
+@export var vamp: VampBunny
 var damage = 10
 @export var max_hp = 100
 

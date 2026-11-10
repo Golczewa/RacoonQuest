@@ -32,7 +32,7 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p354l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3qpeg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x8q4s"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3rqwm"]
@@ -71,7 +71,7 @@ wait_time = 10.0
 
 [node name="Sprite3D" parent="." unique_id=82122180 node_paths=PackedStringArray("vamp") instance=ExtResource("3_6iwxn")]
 transform = Transform3D(0.77256566, 0, 0, 0, 0.70324993, 0, 0, 0, 1, 0, 1.6366088, 0)
-texture = SubResource("ViewportTexture_3qpeg")
+texture = SubResource("ViewportTexture_x8q4s")
 vamp = NodePath("..")
 
 [node name="hitted" type="Area3D" parent="." unique_id=535021750]

@@ -1,15 +1,13 @@
 extends CharacterBody3D
 
-class_name Vamp_bunny
+class_name VampBunny
 
-@export var player: Node3D
-@export var bullet: StaticBody3D
+var player: Node3D
 @export var speed = 30
+@export var shoot_hight:float=1
+
 @onready var shoot = preload("res://scenes/shoot.tscn")
-
-
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
-var bunny = self
 
 signal less_hp
 
@@ -53,9 +51,9 @@ func _physics_process(delta: float) -> void:
 	match state:
 		ALERT:
 			target = player.active_animal
-			raycast.look_at(target.global_transform.origin, Vector3.UP)
-			raycast.global_transform.origin = global_transform.origin 
-			raycast.target_position = Vector3(0,0,-10)
+			raycast.look_at(target.global_transform.origin+Vector3(0,shoot_hight,0), Vector3.UP)
+			raycast.global_transform.origin = global_transform.origin+Vector3(0,shoot_hight,0)
+			raycast.target_position = Vector3(0,0,-10)+Vector3(0,shoot_hight,0)
 			raycast.force_raycast_update()
 			var distance_to_target = global_transform.origin.distance_to(target.global_transform.origin)
 			var min_distance = 3.0
