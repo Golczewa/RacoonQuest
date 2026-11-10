@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwhk27sw1shgp"]
+
+[ext_resource type="Texture2D" uid="uid://b2y6annt2vrg1" path="res://assets/trawy.png" id="1_7o1gi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm86"]
+size = Vector3(1, 1.6260986, 0.26611328)
+
+[node name="Big_grass" type="Node3D" unique_id=917278283]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=432701501]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=1625375851]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.39819157, 0)
+texture = ExtResource("1_7o1gi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1960424116]
+transform = Transform3D(1, 0, 0, 0, 0.6161512, 0, 0, 0, 1, -0.00067067146, 0.473175, -0.012451172)
+shape = SubResource("BoxShape3D_fcm86")
