@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dr86h62q4qx7g"]
+
+[ext_resource type="Script" uid="uid://c33b2i58y6brv" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="PackedScene" uid="uid://cgsx7rrl0tkky" path="res://scenes/player/racoon/racoon_adjusted.tscn" id="2_p47bc"]
+[ext_resource type="PackedScene" uid="uid://1ndkwl7k3rfe" path="res://scenes/player/racoon/projectile.tscn" id="3_75vfm"]
+[ext_resource type="PackedScene" uid="uid://b5v4t5fgc21xx" path="res://scenes/player/boar/boar.tscn" id="4_0owmy"]
+[ext_resource type="PackedScene" uid="uid://buequic0uogo6" path="res://scenes/player/squirrel/squirrel.tscn" id="5_qek5x"]
+
+[node name="Node3D" type="Node3D" unique_id=1370020864 node_paths=PackedStringArray("starting_animal") groups=["player"]]
+script = ExtResource("1_8afob")
+starting_animal = NodePath("Racoon")
+camera_offset = Vector3(0.064, 15.205, -27.625)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=487479200]
+transform = Transform3D(-1, 4.171455e-08, -7.6828634e-08, 0, 0.87881714, 0.4771588, 8.742278e-08, 0.4771588, -0.87881714, 0.06362089, 15.204528, -27.625416)
+current = true
+fov = 20.0
+
+[node name="Racoon" parent="." unique_id=1407618352 instance=ExtResource("2_p47bc")]
+projectile_scene = ExtResource("3_75vfm")
+spawn_height_offset = 0.6
+
+[node name="Boar" parent="." unique_id=1012796646 instance=ExtResource("4_0owmy")]
+
+[node name="Squirrel" parent="." unique_id=112536846 instance=ExtResource("5_qek5x")]

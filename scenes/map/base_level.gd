@@ -9,13 +9,12 @@ var curr_room:Room
 var curr_room_num:=0
 
 func _ready() -> void:
-	animals=get_parent().get_node("animals").get_children()
+	animals=get_tree().get_first_node_in_group("player").get_animals()
 	first_room()
 
 
 
 func next_room()->void:
-	print(":sob:")
 	if(curr_room_num+1>=rooms.size()):
 		return
 	print("changing room to",str(curr_room_num+1))

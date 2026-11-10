@@ -48,3 +48,10 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 
 func get_boar_rid()->RID:
 	return $animals/Boar/CollisionShape3D.get_rid()
+
+func get_animals()->Array[Node]:
+	var animals:Array[Node]=[]
+	for child in get_children():
+		if child is AnimalCharacter:
+			animals.append(child)
+	return animals
