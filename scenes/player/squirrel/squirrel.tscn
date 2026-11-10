@@ -2,6 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_om24i"]
 [ext_resource type="Script" uid="uid://cwnm6qsrw11o3" path="res://squirrel.gd" id="2_mwcxp"]
+[ext_resource type="Texture2D" uid="uid://bobf6tfwayaws" path="res://assets/player/wiewiora1.png" id="3_pk4i0"]
+[ext_resource type="Texture2D" uid="uid://dekpkuvcaimr8" path="res://assets/player/wiewiora2.png" id="4_p3ap5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nth2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pk4i0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3ap5")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y4y60"]
 height = 0.8
@@ -17,8 +33,11 @@ weight_class = "low"
 transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
 
 [node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
+transform = Transform3D(0.15, 0, 0, 0, 0.14999999, 0, 0, 0, 0.14999999, 0, 0.84899384, 0)
 billboard = 2
 alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_nth2u")
+animation = &"walk"
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=816112685]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)

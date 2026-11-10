@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cadoevv4q07ml"]
 
+[ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_gnusc"]
 [ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="1_w4gpo"]
 [ext_resource type="PackedScene" uid="uid://4ci2ejvd1155" path="res://scenes/props/tree_with_box.tscn" id="2_6ugf7"]
 [ext_resource type="PackedScene" uid="uid://bunn0mo2ccril" path="res://scenes/props/tree.tscn" id="2_trxp7"]
-[ext_resource type="PackedScene" uid="uid://cx4jtv4imss6s" path="res://scenes/props/box.tscn" id="3_g460o"]
 [ext_resource type="PackedScene" uid="uid://d1ciccx0qcnvc" path="res://scenes/props/stone.tscn" id="4_e21fi"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="6_hink8"]
 
@@ -27,13 +27,21 @@ albedo_color = Color(0.12156863, 0.1764706, 0.14901961, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbjtb"]
 size = Vector3(118.081635, 1, 76.40268)
 
-[node name="Node3D" type="Node3D" unique_id=7942147]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnusc"]
+size = Vector3(3.3127441, 2.0805664, 13.045288)
+
+[node name="Node3D" type="Node3D" unique_id=1272860177 node_paths=PackedStringArray("spawns", "exit")]
+script = ExtResource("1_gnusc")
+spawns = [NodePath("Marker3D"), NodePath("Marker3D2"), NodePath("Marker3D3")]
+exit = NodePath("Area3D")
+metadata/_custom_type_script = "uid://ds7qxng1piyxi"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1934029301]
 environment = SubResource("Environment_10ae1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=847738983]
 transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
+light_color = Color(0.5294118, 0.5647059, 1, 1)
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=590778289]
@@ -88,9 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.534622, 0, 8.838379)
 [node name="Node3D" parent="puzzle" unique_id=1324574635 instance=ExtResource("2_6ugf7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8817596, 0, 6.055542)
 
-[node name="Node3D2" parent="puzzle" unique_id=1032443699 instance=ExtResource("3_g460o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7125854, 0.5218506, 6.4385605)
-
 [node name="StaticBody3D" parent="puzzle" unique_id=1976080715 instance=ExtResource("4_e21fi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
 
@@ -98,3 +103,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.095, 0, 6.039833)
 transform = Transform3D(80.30384, 0, 0, 0, 1, 0, 0, 0, 13.356658, 0, 0, 6.2417603)
 rand_seed = 100
 stuff_count = 25
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1243121919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.117374, 0.42917633, 6.1970825)
+
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=286465186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.003864, 0.42917633, 3.921875)
+
+[node name="Marker3D3" type="Marker3D" parent="." unique_id=1490116123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.443974, 0.42917633, 4.0633545)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1712807614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.148865, 0, 10.344147)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=828738072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+shape = SubResource("BoxShape3D_gnusc")
