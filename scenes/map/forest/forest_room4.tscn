@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_s3qxq"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="2_br7om"]
 [ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemy_bunny.tscn" id="3_7eswh"]
+[ext_resource type="PackedScene" uid="uid://bbtb3304ca7dx" path="res://scenes/props/weed.tscn" id="3_edrg1"]
+[ext_resource type="PackedScene" uid="uid://b74gp2twy6ifa" path="res://scenes/props/bush.tscn" id="4_q71ke"]
+[ext_resource type="PackedScene" uid="uid://bjh4jpuly8d3d" path="res://scenes/props/small_weed.tscn" id="5_vv2mg"]
+[ext_resource type="PackedScene" uid="uid://c4ej0jbc8fsx7" path="res://scenes/props/tree_border.tscn" id="7_q71ke"]
+[ext_resource type="PackedScene" uid="uid://b2rybtarsuty5" path="res://scenes/props/magic_wall.tscn" id="8_vv2mg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3qxq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,10 +27,16 @@ glow_intensity = 1.2
 albedo_color = Color(6.256998e-07, 0.25162107, 0.18447244, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q71ke"]
-size = Vector3(26.936462, 1, 41.49164)
+size = Vector3(43.44066, 1, 49.642014)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_br7om"]
-size = Vector3(3.3127441, 2.0805664, 13.045288)
+size = Vector3(3.3127441, 2.0805664, 6.21138)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xutu6"]
+transparency = 1
+albedo_color = Color(0.73333335, 0, 0, 0.36862746)
+emission = Color(1, 0.3137255, 1, 1)
+emission_energy_multiplier = 4.3
 
 [node name="ForestRoom4" type="Node3D" unique_id=1015797948 node_paths=PackedStringArray("spawns", "exit")]
 script = ExtResource("1_s3qxq")
@@ -38,41 +49,66 @@ environment = SubResource("Environment_ktrh5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2108751178]
 transform = Transform3D(-0.7165418, -0.5172869, 0.46795505, -0.19372092, 0.7920438, 0.57891166, -0.6701043, 0.32416177, -0.6677419, 0.78305054, 4.420103, -6.290498)
-light_color = Color(0.5294118, 0.5647059, 1, 1)
+light_color = Color(0.4405366, 0.031794403, 1.6845763e-07, 1)
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276899903]
-transform = Transform3D(13.618382, 0, 0, 0, 3.0085306, 0, 0, 0, 21.277075, 0, 0, 0)
+transform = Transform3D(36.44423, 0, 0, 0, 2, 0, 0, 0, 25.550335, 0, 0, 0)
 mesh = SubResource("PlaneMesh_wrw1q")
 surface_material_override/0 = SubResource("StandardMaterial3D_edrg1")
 
 [node name="Node3D" parent="." unique_id=1137934851 instance=ExtResource("2_br7om")]
-transform = Transform3D(26.80072, 0, 0, 0, 1.5391717, 0, 0, 0, 42.192627, 0.21358776, -0.06726694, 0.18405247)
-visible = false
+transform = Transform3D(27.060621, 0, 0, 0, 1.5391717, 0, 0, 0, 27.18647, 0.21358776, -0.06726694, 0.18405247)
 rand_seed = 8
 stuff_count = 40
+stuff = Array[PackedScene]([ExtResource("3_edrg1"), ExtResource("4_q71ke"), ExtResource("5_vv2mg")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=649301757]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=503759864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0113220215, -0.3400091, 0.08364868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09745026, -0.3400091, -0.02141571)
 shape = SubResource("BoxShape3D_q71ke")
 
 [node name="vamp_bunny" parent="." unique_id=1091209018 instance=ExtResource("3_7eswh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78438663, 0, 7.705694)
 shoot_hight = 0.5
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1974288785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12444973, 0.42917633, -5.4937267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8660269, 0.42917633, -8.989309)
 
 [node name="Marker3D2" type="Marker3D" parent="." unique_id=1720415893]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6005862, 0.42917633, -6.6867533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34741497, 0.42917633, -8.117673)
 
 [node name="Marker3D3" type="Marker3D" parent="." unique_id=405217134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4161339, 0.42917633, -6.6344757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2716403, 0.42917633, -8.720356)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=238829603]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.035198, 0, -10.840532)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1455273797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.747355, 2.0454102, -5.80285)
 shape = SubResource("BoxShape3D_br7om")
+
+[node name="Node3D3" parent="." unique_id=623863563 instance=ExtResource("7_q71ke")]
+transform = Transform3D(57.905396, 0, 0, 0, 1, 0, 0, 0, 11.629344, 0, 0, -19.516796)
+
+[node name="Node3D4" parent="." unique_id=1469618662 instance=ExtResource("7_q71ke")]
+transform = Transform3D(9.985946, 0, 0, 0, 1, 0, 0, 0, 9.278469, -9.358076, 0, 18.94636)
+
+[node name="Node3D5" parent="." unique_id=1614259131 instance=ExtResource("7_q71ke")]
+transform = Transform3D(13.347724, 0, 0, 0, 1, 0, 0, 0, 8.717091, 7.772846, 0, 18.519545)
+
+[node name="Node3D6" parent="." unique_id=1639156029 instance=ExtResource("7_q71ke")]
+transform = Transform3D(14.947283, 0, 0, 0, 1, 0, 0, 0, 36.344353, 21.92445, 0, 4.967288)
+
+[node name="Node3D7" parent="." unique_id=1886063575 instance=ExtResource("7_q71ke")]
+transform = Transform3D(13.885517, 0, 0, 0, 1, 0, 0, 0, 37.468273, -21.038033, 0, 5.4664087)
+
+[node name="Node3D2" parent="." unique_id=396079776 node_paths=PackedStringArray("triggers") instance=ExtResource("8_vv2mg")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -1.434555, 0, 15.227167)
+triggers = [NodePath("../vamp_bunny")]
+
+[node name="MeshInstance3D" parent="Node3D2" index="0" unique_id=2099238204]
+material_override = SubResource("StandardMaterial3D_xutu6")
+
+[editable path="Node3D2"]

@@ -49,8 +49,8 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 
 	print("Body taken: ", active_animal.name)
 
-func get_boar_rid()->RID:
-	return $animals/Boar/CollisionShape3D.get_rid()
+func get_boar()->AnimalCharacter:
+	return get_node_or_null("Boar") as AnimalCharacter
 
 func get_animals()->Array[Node]:
 	var animals:Array[Node]=[]

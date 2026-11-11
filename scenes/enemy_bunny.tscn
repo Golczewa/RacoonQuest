@@ -34,6 +34,12 @@ animations = [{
 [sub_resource type="ViewportTexture" id="ViewportTexture_m0swm"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3htl"]
+transparency = 1
+albedo_color = Color(0.53333336, 0, 0.05490196, 0.59607846)
+
+[sub_resource type="SphereMesh" id="SphereMesh_f5kge"]
+
 [node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018 groups=["enemy"]]
 script = ExtResource("2_x8q4s")
 
@@ -43,6 +49,8 @@ shape = SubResource("BoxShape3D_spkyn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=938733881]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.7262194, 0)
+billboard = 2
+shaded = true
 sprite_frames = SubResource("SpriteFrames_sjb86")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=473361434]
@@ -57,14 +65,20 @@ texture = SubResource("ViewportTexture_m0swm")
 vamp = NodePath("..")
 
 [node name="MeshInstance3D" parent="." unique_id=556871384 instance=ExtResource("5_m0swm")]
-max_range = 15.0
+max_range = 25.0
 ring_width = 6.0
-speed = 2.0
+speed = 4.0
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=312836749]
 
 [node name="BoomTimer" type="Timer" parent="." unique_id=1697876881]
 wait_time = 10.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2004057717]
+transform = Transform3D(1.45, 0, 0, 0, 1.45, 0, 0, 0, 1.45, 0, 0.62830436, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_v3htl")
+mesh = SubResource("SphereMesh_f5kge")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]

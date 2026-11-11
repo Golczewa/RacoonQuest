@@ -4,47 +4,91 @@ signal target_hit(body: Node3D)
 signal finished
 
 @export var ray_count := 180
+@export var rays_per_frame := 30
 @export var max_range := 8.0
 @export var ring_width := 2.0
 @export var speed := 12.0
 @export var ray_height := 0.5
 @export var mesh_height := 0.03
-@export var damage := 1
+@export var damage := 10
 @export var hit_margin := 0.4
-@export_flags_3d_physics var wall_mask := 1
+@export_flags_3d_physics var wall_mask := 1 << 4
 
 var origin := Vector3.ZERO
+var ray_origin := Vector3.ZERO
+var exclude: Array[RID] = []
 var dists := PackedFloat32Array()
 var colliders := []
+var scan_cursor := 0
+
 var r_out := 0.0
 var prev_r_in := 0.0
 var active := false
 var already_hit := false
 var player
 
+
 func _ready() -> void:
 	top_level = true
 	player=get_tree().get_first_node_in_group("player")
 
-
-func start(from: Vector3, source: CollisionObject3D = null) -> void:
+func start(from: Vector3, sources: Array[CollisionObject3D] = []) -> void:
 	origin = from
 	global_position = from
-	var space := get_world_3d().direct_space_state
-	var ray_origin := from + Vector3.UP * ray_height
+	ray_origin = from + Vector3.UP * ray_height
 
-	var exclude: Array[RID] = []
-	if source:
-		exclude.append(source.get_rid())
+	exclude.clear()
+	for s in sources:
+		if is_instance_valid(s):
+			exclude.append(s.get_rid())
 
 	dists.resize(ray_count)
 	colliders.clear()
 	colliders.resize(ray_count)
-	for i in ray_count:
+	scan_cursor = 0
+	_scan_rays(0, ray_count)
+
+	r_out = 0.0
+	prev_r_in = 0.0
+	already_hit = false
+	active = true
+
+
+func _physics_process(delta: float) -> void:
+	if not active:
+		return
+
+	r_out += speed * delta
+	if r_out - ring_width > max_range:
+		active = false
+		mesh = null
+		finished.emit()
+		return
+	_scan_rays(scan_cursor, rays_per_frame)
+	scan_cursor = (scan_cursor + rays_per_frame) % ray_count
+
+	var r_in := maxf(r_out - ring_width, 0.0)
+	_rebuild_mesh(r_in, r_out)
+
+	if not already_hit:
+		var target = player.active_animal
+		if is_instance_valid(target) and is_hit(target):
+			already_hit = true
+			target_hit.emit(target)
+
+	prev_r_in = r_in
+
+
+func _scan_rays(first: int, count: int) -> void:
+	var space := get_world_3d().direct_space_state
+	var q := PhysicsRayQueryParameters3D.new()
+	q.collision_mask = wall_mask
+	q.exclude = exclude
+	q.from = ray_origin
+	for n in count:
+		var i := (first + n) % ray_count
 		var angle := TAU * float(i) / ray_count
-		var to := ray_origin + Vector3(cos(angle), 0, sin(angle)) * max_range
-		var q := PhysicsRayQueryParameters3D.create(ray_origin, to, wall_mask)
-		q.exclude = exclude
+		q.to = ray_origin + Vector3(cos(angle), 0, sin(angle)) * max_range
 		var hit := space.intersect_ray(q)
 		if hit:
 			dists[i] = ray_origin.distance_to(hit.position)
@@ -53,30 +97,10 @@ func start(from: Vector3, source: CollisionObject3D = null) -> void:
 			dists[i] = max_range
 			colliders[i] = null
 
-	r_out = 0.0
-	prev_r_in = 0.0
-	already_hit = false
-	active = true
-
-func _physics_process(delta: float) -> void:
-	if not active:
-		return
-	r_out += speed * delta
-	if r_out - ring_width > max_range:
-		active = false
-		mesh = null
-		finished.emit()
-		return
-	_rebuild_mesh(maxf(r_out - ring_width, 0.0), r_out)
-	if not already_hit:
-		var target=player.active_animal
-		if is_instance_valid(target) and is_hit(target):
-			already_hit = true
-			player.take_dmg(damage)
-	prev_r_in = maxf(r_out - ring_width, 0.0)
 
 func _is_target(col: Object, target: Node3D) -> bool:
 	return is_instance_valid(col) and (col == target or target.is_ancestor_of(col))
+
 
 func is_hit(target: Node3D) -> bool:
 	if not active:
@@ -103,10 +127,6 @@ func is_hit(target: Node3D) -> bool:
 	return false
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ring_test"):
-		start(global_position)
-
 func _rebuild_mesh(r_in: float, r_o: float) -> void:
 	var verts := PackedVector3Array()
 	var indices := PackedInt32Array()
@@ -124,9 +144,9 @@ func _rebuild_mesh(r_in: float, r_o: float) -> void:
 
 		var base := verts.size()
 		verts.append(d0 * r_in + Vector3.UP * mesh_height)
-		verts.append(d0 * o0   + Vector3.UP * mesh_height)
+		verts.append(d0 * o0 + Vector3.UP * mesh_height)
 		verts.append(d1 * r_in + Vector3.UP * mesh_height)
-		verts.append(d1 * o1   + Vector3.UP * mesh_height)
+		verts.append(d1 * o1 + Vector3.UP * mesh_height)
 		indices.append_array([base, base + 1, base + 2, base + 2, base + 1, base + 3])
 
 	if verts.is_empty():

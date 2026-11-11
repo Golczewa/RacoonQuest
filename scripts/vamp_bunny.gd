@@ -13,6 +13,8 @@ var player: Node3D
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 
 signal less_hp
+signal correct
+signal wrong
 
 enum {
 	IDLE,
@@ -26,6 +28,7 @@ const TURN_SPEED = 2
 @onready var boom_timer: Timer = $BoomTimer
 @onready var ring = $MeshInstance3D
 @onready var sprite = $AnimatedSprite3D
+@onready var shield=$MeshInstance3D2
 
 var state = IDLE
 var hp := max_hp
@@ -36,6 +39,7 @@ var is_ring_active = false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+	player.get_boar().run_from_bunny(self)
 	state = ALERT
 
 
@@ -84,6 +88,7 @@ func take_dmg(dmg: int) -> void:
 	hp -= dmg
 	if hp <= 0:
 		queue_free()
+		correct.emit()
 	less_hp.emit()
 
 
@@ -109,10 +114,13 @@ func shoot_attack() -> void:
 func ring_attack(attack_time := 5.0) -> void:
 	shot_count = randi_range(4, 6)
 	is_ring_active = true
+	sprite.stop()
+	shield.show()
 	var tween := create_tween()
 	tween.tween_property(sprite, "modulate", Color.RED, attack_time)
 	await tween.finished
 	sprite.modulate = Color.WHITE
-	ring.start(global_position, self)
+	ring.start(global_position)
 	await ring.finished
+	shield.hide()
 	is_ring_active = false

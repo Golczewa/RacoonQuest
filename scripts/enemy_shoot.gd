@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 		global_position += direction * speed * delta
 		
 		
-func _on_body_entered(body: CharacterBody3D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	print("hit")
 	var player=get_tree().get_first_node_in_group("player")
 	if(body==player.active_animal):
