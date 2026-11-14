@@ -29,7 +29,7 @@ spawn_height_offset = 0.6
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
-transform = Transform3D(0.2, 0, 0, 0, 0.19999999, 0, 0, 0, 0.19999999, 0, 0.79252416, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.19999997, 0, 0, 0, 0.19999997, 0, 0.8215041, 0)
 billboard = 2
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_dox0l")

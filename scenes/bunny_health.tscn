@@ -8,7 +8,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snmsy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcm86"]
-bg_color = Color(0.61218274, 0.39369574, 0.3285493, 1)
+bg_color = Color(0.6117647, 0.39215687, 0.32941177, 0)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -16,7 +16,7 @@ border_width_bottom = 1
 border_color = Color(0.45064795, 0.45064837, 0.45064813, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft7e5"]
-bg_color = Color(0.67720073, 0.35219628, 0.36378828, 1)
+bg_color = Color(0.5670038, 0.118668385, 0.15302116, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_bottom = 1

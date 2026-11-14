@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://co87o2sto1dr5"]
 
-[ext_resource type="Script" uid="uid://c33b2i58y6brv" path="res://scenes/player/player_test_arena.gd" id="1_7lxpa"]
+[ext_resource type="Script" uid="uid://c33b2i58y6brv" path="res://scenes/player/player.gd" id="1_7lxpa"]
 [ext_resource type="PackedScene" uid="uid://cb33bkwfcxavm" path="res://scenes/player/racoon/racoon.tscn" id="1_chc1s"]
 [ext_resource type="PackedScene" uid="uid://buequic0uogo6" path="res://scenes/player/squirrel/squirrel.tscn" id="2_7lxpa"]
 [ext_resource type="PackedScene" uid="uid://1ndkwl7k3rfe" path="res://scenes/player/racoon/projectile.tscn" id="4_7fah3"]
