@@ -1,9 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://1qbgqv4ns2ds"]
 
-[ext_resource type="Shader" path="res://shaders/felt_floor.gdshader" id="1_felt"]
-[ext_resource type="Texture2D" path="res://assets/materials/felt/felt_fibers.png" id="2_fibers"]
+[ext_resource type="Shader" uid="uid://b40lttlxxyfjw" path="res://shaders/felt_floor.gdshader" id="1_felt"]
+[ext_resource type="Texture2D" uid="uid://bum1ys3etyswy" path="res://assets/materials/felt/felt_fibers.png" id="2_fibers"]
 
 [resource]
+render_priority = 0
 shader = ExtResource("1_felt")
 shader_parameter/felt_fibers = ExtResource("2_fibers")
 shader_parameter/felt_color = Color(0.18, 0.255, 0.19, 1)
