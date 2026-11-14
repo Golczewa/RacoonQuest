@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cnsuxf4b8rafs" path="res://scenes/player/base_animal.tscn" id="1_om24i"]
 [ext_resource type="Script" uid="uid://cwnm6qsrw11o3" path="res://squirrel.gd" id="2_mwcxp"]
 [ext_resource type="PackedScene" path="res://scenes/player/squirrel/wooden_squirrel.tscn" id="3_wooden"]
-[ext_resource type="Texture2D" path="res://assets/wiewiora1.png" id="4_art0"]
-[ext_resource type="Texture2D" path="res://assets/wiewiora2.png" id="5_art1"]
+[ext_resource type="Texture2D" path="res://assets/player/wiewiora1.png" id="4_art0"]
+[ext_resource type="Texture2D" path="res://assets/player/wiewiora2.png" id="5_art1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_squirrel"]
 animations = [{
@@ -28,6 +28,7 @@ weight_class = "low"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AnimatedSprite3D" parent="Visuals" index="0" unique_id=401181971]
+transform = Transform3D(0.15, 0, 0, 0, 0.14999999, 0, 0, 0, 0.14999999, 0, 0.84899384, 0)
 billboard = 2
 alpha_cut = 2
 visible = false

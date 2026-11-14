@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://172mhhrd2xmx"]
+
+[ext_resource type="PackedScene" uid="uid://cdjrw48uvro2m" path="res://scenes/bunny_attack_ring.tscn" id="1_ckkex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckkex"]
+albedo_color = Color(0.47479695, 1.1130236e-06, 3.6098064e-07, 1)
+
+[node name="Node3D" type="Node3D" unique_id=434966640]
+
+[node name="MeshInstance3D" parent="." unique_id=556871384 instance=ExtResource("1_ckkex")]
+material_override = SubResource("StandardMaterial3D_ckkex")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=463031289]
+transform = Transform3D(0.99993604, -0.007805696, 0.00818309, 0, 0.72359556, 0.69022423, -0.011308928, -0.6901801, 0.72354925, 0.03817912, 3.2203178, 3.3757994)
+current = true

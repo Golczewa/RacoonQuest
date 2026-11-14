@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddapw5mwi5uh0"]
+
+[ext_resource type="Texture2D" uid="uid://btxi2i8joxct1" path="res://assets/trawka.png" id="1_e1kak"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm86"]
+size = Vector3(1, 1, 0.19839478)
+
+[node name="Grass" type="Node3D" unique_id=2022897439]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1951464742]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=340857390]
+transform = Transform3D(0.19884573, 0, 0, 0, 0.19884573, 0, 0, 0, 0.19884573, 0, 0.5766654, 0)
+texture = ExtResource("1_e1kak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1838064726]
+transform = Transform3D(1, 0, 0, 0, 0.6329709, 0, 0, 0, 1, 0, 0.29282796, 0.010116577)
+shape = SubResource("BoxShape3D_fcm86")

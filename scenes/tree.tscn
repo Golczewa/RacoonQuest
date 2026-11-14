@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://djxj6014i12nc"]
+
+[ext_resource type="Texture2D" uid="uid://b6x3li56f2tef" path="res://assets/drzewo.png" id="1_avsvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm86"]
+size = Vector3(1, 1.5117188, 1)
+
+[node name="Tree" type="Node3D" unique_id=503574029]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=767981708]
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=1945617252]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0, 1.780628, 0)
+billboard = 2
+texture = ExtResource("1_avsvi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=574258493]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.4807801, 0)
+shape = SubResource("BoxShape3D_fcm86")
