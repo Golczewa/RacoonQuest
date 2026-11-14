@@ -7,7 +7,6 @@ var running_from_bunny:=false
 var bunny:VampBunny
 
 func _ready() -> void:
-	super._ready()
 	max_speed = 3.0
 	weight = 3.0
 	push_force = 8.0

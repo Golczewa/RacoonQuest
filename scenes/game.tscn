@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="6_u5sy4"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435]
-
-[node name="Level" parent="." unique_id=1082701690 instance=ExtResource("6_u5sy4")]
+physics_interpolation_mode = 2
 
 [node name="Player" parent="." unique_id=1370020864 instance=ExtResource("3_lnu2h")]
+
+[node name="Level" parent="." unique_id=1082701690 instance=ExtResource("6_u5sy4")]

@@ -17,7 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width.movie=1920
+window/size/viewport_height.movie=1080
 window/stretch/mode="canvas_items"
+window/stretch/mode.movie="viewport"
 window/stretch/aspect="expand"
 
 [global_group]
@@ -78,9 +81,11 @@ jump={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+limits/opengl/max_lights_per_object=12
