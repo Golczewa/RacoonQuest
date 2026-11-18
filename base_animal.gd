@@ -1,6 +1,8 @@
 class_name AnimalCharacter
 extends CharacterBody3D
 
+@export var icon:=Texture2D
+
 @export_group("Movement Stats")
 @export var max_speed: float = 5.0
 @export var acceleration: float = 30.0

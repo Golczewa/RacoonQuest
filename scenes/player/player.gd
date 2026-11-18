@@ -5,15 +5,19 @@ extends Node3D
 @export var camera_smooth_speed: float = 8.0
 
 @onready var camera: Camera3D = $Camera3D
+@onready var animal_buttons:Array[Node] = $animal_buttons/HBoxContainer.get_children()
 
 const MAX_HEALTH:=5
 
 var active_animal: AnimalCharacter
 var health=MAX_HEALTH
+var animals:Array[AnimalCharacter]
 
 func _ready() -> void:
+	
 	for child in get_children():
 		if child is AnimalCharacter:
+			animals.append(child)
 			child.is_active_player = false
 			if active_animal == null and starting_animal == null:
 				starting_animal = child
@@ -22,12 +26,16 @@ func _ready() -> void:
 		_possess_animal(starting_animal)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("switch_character") and active_animal != null:
-		var target_animal := active_animal.get_closest_swappable_animal()
+	if active_animal != null:
+		var target_animal
+		if Input.is_action_just_pressed("first_animal"):
+			target_animal=0
+		elif Input.is_action_just_pressed("second_animal"):
+			target_animal=1
+		elif Input.is_action_just_pressed("third_animal"):
+			target_animal=2
 		if target_animal != null:
-			_possess_animal(target_animal)
-		else:
-			print("Come closer to another animal.")
+			_possess_animal(animals[target_animal])
 			
 	if active_animal != null:
 		var target_pos := active_animal.get_global_transform_interpolated().origin + camera_offset

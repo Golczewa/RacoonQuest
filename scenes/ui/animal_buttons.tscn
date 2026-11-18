@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://deaog2hb50i0n"]
+
+[node name="Control" type="Control" unique_id=1471013613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=83306836]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 585.0
+offset_right = 827.0
+offset_bottom = 625.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=2059480071]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1616552842]
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1546676290]
+layout_mode = 2
+text = "1"
