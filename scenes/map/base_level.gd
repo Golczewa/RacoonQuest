@@ -4,7 +4,7 @@ class_name Level
 
 @export var rooms:Array[PackedScene]
 
-var animals:Array[Node]
+var animals:Array[AnimalCharacter]
 var curr_room:Room
 var curr_room_num:=3
 

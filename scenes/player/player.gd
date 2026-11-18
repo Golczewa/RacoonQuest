@@ -14,13 +14,19 @@ var health=MAX_HEALTH
 var animals:Array[AnimalCharacter]
 
 func _ready() -> void:
-	
+	var i:=0
 	for child in get_children():
 		if child is AnimalCharacter:
 			animals.append(child)
+			animal_buttons[i].pressed.connect(_possess_animal.bind(child))
+			animal_buttons[i].text=str(i+1)
+			if child.icon:
+				animal_buttons[i].icon=child.icon
+				animal_buttons[i].icon.scale
 			child.is_active_player = false
 			if active_animal == null and starting_animal == null:
 				starting_animal = child
+			i+=1
 				
 	if starting_animal:
 		_possess_animal(starting_animal)
@@ -61,11 +67,7 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 func get_boar()->AnimalCharacter:
 	return get_node_or_null("Boar") as AnimalCharacter
 
-func get_animals()->Array[Node]:
-	var animals:Array[Node]=[]
-	for child in get_children():
-		if child is AnimalCharacter:
-			animals.append(child)
+func get_animals()->Array[AnimalCharacter]:
 	return animals
 
 func take_dmg(dmg:int)->void:
