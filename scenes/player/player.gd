@@ -22,7 +22,6 @@ func _ready() -> void:
 			animal_buttons[i].text=str(i+1)
 			if child.icon:
 				animal_buttons[i].icon=child.icon
-				animal_buttons[i].icon.scale
 			child.is_active_player = false
 			if active_animal == null and starting_animal == null:
 				starting_animal = child
