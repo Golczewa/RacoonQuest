@@ -20,5 +20,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	if body.is_in_group("shotable"):
 		body.shatter()
+	if body is VampBunny:
+		body.take_dmg(1)
 	print("Projectile hit: ", body.name)
 	queue_free()

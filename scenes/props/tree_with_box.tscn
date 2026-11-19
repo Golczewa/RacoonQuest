@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4ci2ejvd1155"]
 
-[ext_resource type="Texture2D" uid="uid://ft8y41qnn3jc" path="res://assets/props/drzewolisciaste.png" id="1_mi8vs"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/deciduous/deciduous.glb" id="1_mi8vs"]
 [ext_resource type="Script" uid="uid://co6cisvjarajy" path="res://scenes/props/tree_with_box.gd" id="1_w3fmj"]
-[ext_resource type="Texture2D" uid="uid://oyd2st62nc1e" path="res://assets/props/skrzynia.png" id="2_mi8vs"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/chest/chest.glb" id="2_mi8vs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mi8vs"]
 size = Vector3(0.8, 5.858, 0.6)
@@ -12,18 +12,11 @@ size = Vector3(0.8, 5.858, 0.6)
 [node name="Node3D" type="StaticBody3D" unique_id=1324574635 groups=["climbable"]]
 script = ExtResource("1_w3fmj")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1348225672]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.1409698, 0)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("1_mi8vs")
+[node name="Sprite3D" parent="." unique_id=1348225672 instance=ExtResource("1_mi8vs")]
+transform = Transform3D(-1.6666667, 0, 0, 0, 1.6666667, 0, 0, 0, -1.6666667, 0.005, 0.02, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Sprite3D" unique_id=767953962]
-transform = Transform3D(0.11366185, 0.27763465, 0, -0.27763465, 0.11366185, 0, 0, 0, 0.3, 3.6015687, 6.4073524, 0.8231201)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("2_mi8vs")
+[node name="BoxVisual" parent="." unique_id=767953962 instance=ExtResource("2_mi8vs")]
+transform = Transform3D(-0.37887283, -0.92544883, 0, -0.92544883, 0.37887283, 0, 0, 0, -1, 2.2672106, 6.1536941, 0.41156005)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1825460972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 3.033, 0.2)
