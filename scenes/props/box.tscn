@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cx4jtv4imss6s"]
 
-[ext_resource type="Texture2D" uid="uid://oyd2st62nc1e" path="res://assets/props/skrzynia.png" id="1_g4j6v"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/chest/chest.glb" id="1_g4j6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jiq1j"]
 size = Vector3(1.4024048, 1.1335297, 1.2840271)
@@ -8,12 +8,8 @@ size = Vector3(1.4024048, 1.1335297, 1.2840271)
 [node name="Node3D" type="RigidBody3D" unique_id=1032443699]
 lock_rotation = true
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=274319855]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.5060748, 0)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("1_g4j6v")
+[node name="Sprite3D" parent="." unique_id=274319855 instance=ExtResource("1_g4j6v")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.02, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1347276412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016998291, 0.5780122, 0.016989946)

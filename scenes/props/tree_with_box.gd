@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 @export var box_scene: PackedScene = preload("res://scenes/props/box.tscn")
-@onready var box_sprite: Sprite3D = $Sprite3D/Sprite3D
+@onready var box_sprite: Node3D = $BoxVisual
 @onready var drop_zone: Area3D = $DropZone
 
 var box_dropped: bool = false

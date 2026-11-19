@@ -15,19 +15,13 @@ extends CharacterBody3D
 
 
 @export_group("Animal Capabilities")
-@export var is_active_player: bool = false:
-	set(value):
-		is_active_player = value
-		_update_active_visual_state()
+@export var is_active_player: bool = false
 
 @onready var visuals: Node3D = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 @onready var swap_area: Area3D = $SwapArea
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-func _ready() -> void:
-	_update_active_visual_state()
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -76,14 +70,6 @@ func get_closest_swappable_animal() -> AnimalCharacter:
 				closest_animal = body
 				
 	return closest_animal
-
-func _update_active_visual_state() -> void:
-	if not is_node_ready():
-		return
-	if is_active_player:
-		sprite.modulate = Color(1.0, 1.0, 1.0)
-	else:
-		sprite.modulate = Color(0.55, 0.55, 0.65)
 
 func _get_input_direction() -> Vector3:
 	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down")

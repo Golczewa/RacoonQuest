@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6x3li56f2tef"
-path.s3tc="res://.godot/imported/drzewo.png-aeb99cfce368cdc35ab9e81c7db250f5.s3tc.ctex"
+uid="uid://beebrokwiyv5p"
+path.s3tc="res://.godot/imported/dzik1.png-fdf8ab011f6131ee4d00418e7236f13a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/props/drzewo.png"
-dest_files=["res://.godot/imported/drzewo.png-aeb99cfce368cdc35ab9e81c7db250f5.s3tc.ctex"]
+source_file="res://assets/dzik1.png"
+dest_files=["res://.godot/imported/dzik1.png-fdf8ab011f6131ee4d00418e7236f13a.s3tc.ctex"]
 
 [params]
 

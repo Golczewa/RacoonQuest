@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c54fxxplf4arm"
-path.s3tc="res://.godot/imported/krzak.png-2c64c7213b78cea88c8818d7c633acfb.s3tc.ctex"
+uid="uid://bum1ys3etyswy"
+path.s3tc="res://.godot/imported/felt_fibers.png-5c091df913ddbfbe0998399ec63075ba.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/props/krzak.png"
-dest_files=["res://.godot/imported/krzak.png-2c64c7213b78cea88c8818d7c633acfb.s3tc.ctex"]
+source_file="res://assets/materials/felt/felt_fibers.png"
+dest_files=["res://.godot/imported/felt_fibers.png-5c091df913ddbfbe0998399ec63075ba.s3tc.ctex"]
 
 [params]
 

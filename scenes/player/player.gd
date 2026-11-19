@@ -6,8 +6,11 @@ extends Node3D
 
 @onready var camera: Camera3D = $Camera3D
 
+const MAX_HEALTH:=5
+
 var active_animal: AnimalCharacter
-	
+var health=MAX_HEALTH
+
 func _ready() -> void:
 	for child in get_children():
 		if child is AnimalCharacter:
@@ -27,8 +30,9 @@ func _process(delta: float) -> void:
 			print("Come closer to another animal.")
 			
 	if active_animal != null:
-		var target_pos := active_animal.global_position + camera_offset
-		camera.global_position = camera.global_position.lerp(target_pos, camera_smooth_speed * delta)
+		var target_pos := active_animal.get_global_transform_interpolated().origin + camera_offset
+		var follow_weight := 1.0 - exp(-camera_smooth_speed * delta)
+		camera.global_position = camera.global_position.lerp(target_pos, follow_weight)
 
 func _possess_animal(new_animal: AnimalCharacter) -> void:
 	var transferred_velocity := Vector3.ZERO
@@ -46,5 +50,16 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 
 	print("Body taken: ", active_animal.name)
 
-func get_boar_rid()->RID:
-	return $animals/Boar/CollisionShape3D.get_rid()
+func get_boar()->AnimalCharacter:
+	return get_node_or_null("Boar") as AnimalCharacter
+
+func get_animals()->Array[Node]:
+	var animals:Array[Node]=[]
+	for child in get_children():
+		if child is AnimalCharacter:
+			animals.append(child)
+	return animals
+
+func take_dmg(dmg:int)->void:
+	health-=dmg
+	print("player took ",dmg," damage")

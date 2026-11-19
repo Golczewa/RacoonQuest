@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnbi5tvujwdr1"
-path.s3tc="res://.godot/imported/rock.png-3d2c07b7648a528c92d9a2057a372dd5.s3tc.ctex"
+uid="uid://dcwsfrvmauw7v"
+path.s3tc="res://.godot/imported/wiewiora1.png-215c747de6afceda3602092ad538406c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/props/rock.png"
-dest_files=["res://.godot/imported/rock.png-3d2c07b7648a528c92d9a2057a372dd5.s3tc.ctex"]
+source_file="res://assets/wiewiora1.png"
+dest_files=["res://.godot/imported/wiewiora1.png-215c747de6afceda3602092ad538406c.s3tc.ctex"]
 
 [params]
 

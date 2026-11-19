@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bunn0mo2ccril"]
 
-[ext_resource type="Texture2D" uid="uid://b6x3li56f2tef" path="res://assets/props/drzewo.png" id="1_d888c"]
+[ext_resource type="PackedScene" path="res://assets/models/wooden_props/pine/pine.glb" id="1_d888c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jiq1j"]
 height = 4.5214844
@@ -8,12 +8,8 @@ radius = 1.184082
 
 [node name="Node3D2" type="StaticBody3D" unique_id=885908942]
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=612001677]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.4641619, 0)
-billboard = 2
-shaded = true
-alpha_cut = 2
-texture = ExtResource("1_d888c")
+[node name="Sprite3D" parent="." unique_id=612001677 instance=ExtResource("1_d888c")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.006, 0.02, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=813809261]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2609048, 0)
