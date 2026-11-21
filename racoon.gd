@@ -6,9 +6,10 @@ extends AnimalCharacter
 func _ready() -> void:
 	weight = 1.0
 	push_force = 2.0
+	timer.timeout.connect(remove_cooldown)
 
 func perform_special_action() -> void:
-	if projectile_scene == null:
+	if projectile_scene == null or in_cooldown:
 		return
 		
 	var aim_dir := _get_mouse_aim_direction()
@@ -25,6 +26,8 @@ func perform_special_action() -> void:
 	proj.global_position = global_position + Vector3(0.0, spawn_height_offset, 0.0) + aim_dir * 0.6
 	proj.direction = aim_dir
 	proj.shooter = self
+	timer.start(special_action_cooldown)
+	start_cooldown()
 
 func _get_mouse_aim_direction() -> Vector3:
 	var camera := get_viewport().get_camera_3d()
