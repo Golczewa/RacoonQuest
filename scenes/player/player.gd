@@ -1,4 +1,4 @@
-extends Node3D
+class_name Player extends Node3D
 
 @export var starting_animal: AnimalCharacter
 @export var camera_offset: Vector3 = Vector3(0, 4, 6)
@@ -10,7 +10,8 @@ extends Node3D
 const MAX_HEALTH:=5
 
 var active_animal: AnimalCharacter
-var health=MAX_HEALTH
+var health:=MAX_HEALTH
+var dead:=false
 var animals:Array[AnimalCharacter]
 
 func _ready() -> void:
@@ -31,17 +32,6 @@ func _ready() -> void:
 		_possess_animal(starting_animal)
 
 func _process(delta: float) -> void:
-	if active_animal != null:
-		var target_animal
-		if Input.is_action_just_pressed("first_animal"):
-			target_animal=0
-		elif Input.is_action_just_pressed("second_animal"):
-			target_animal=1
-		elif Input.is_action_just_pressed("third_animal"):
-			target_animal=2
-		if target_animal != null:
-			_possess_animal(animals[target_animal])
-			
 	if active_animal != null:
 		var target_pos := active_animal.get_global_transform_interpolated().origin + camera_offset
 		var follow_weight := 1.0 - exp(-camera_smooth_speed * delta)
@@ -71,4 +61,15 @@ func get_animals()->Array[AnimalCharacter]:
 
 func take_dmg(dmg:int)->void:
 	health-=dmg
+	if health<0:
+		dead=true
 	print("player took ",dmg," damage")
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if active_animal == null:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		var index:int = event.keycode - KEY_1
+		if index >= 0 and index < animals.size():
+			_possess_animal(animals[index])
