@@ -7,6 +7,7 @@ var climb_normal: Vector3 = Vector3.ZERO
 func _ready() -> void:
 	weight = 0.3 
 	push_force = 0.5
+	timer.timeout.connect(remove_cooldown)
 
 func _physics_process(delta: float) -> void:
 	var touching_climbable := _is_near_climbable_wall()
@@ -53,6 +54,9 @@ func _is_near_climbable_wall() -> bool:
 	return false
 
 func perform_special_action() -> void:
+	if in_cooldown:
+		return
 	if _is_near_climbable_wall():
 		is_climbing = not is_climbing
 		print("Squirrel climbing: ", is_climbing)
+		start_cooldown()

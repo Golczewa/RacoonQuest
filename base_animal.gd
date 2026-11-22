@@ -1,6 +1,8 @@
 class_name AnimalCharacter
 extends CharacterBody3D
 
+@export var icon:=Texture2D
+
 @export_group("Movement Stats")
 @export var max_speed: float = 5.0
 @export var acceleration: float = 30.0
@@ -16,12 +18,15 @@ extends CharacterBody3D
 
 @export_group("Animal Capabilities")
 @export var is_active_player: bool = false
+@export var special_action_cooldown: float = 1.0
 
 @onready var visuals: Node3D = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 @onready var swap_area: Area3D = $SwapArea
+@onready var timer:Timer=$Timer
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var in_cooldown:bool=false
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -112,3 +117,10 @@ func _update_visuals(direction: Vector3) -> void:
 		
 func perform_special_action() -> void:
 	pass
+
+func remove_cooldown() -> void:
+	in_cooldown=false
+
+func  start_cooldown() -> void:
+	in_cooldown=true
+	timer.start(special_action_cooldown)

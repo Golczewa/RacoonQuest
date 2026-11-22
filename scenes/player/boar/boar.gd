@@ -10,13 +10,18 @@ func _ready() -> void:
 	max_speed = 3.0
 	weight = 3.0
 	push_force = 8.0
+	timer.timeout.connect(remove_cooldown)
+
 
 func perform_special_action() -> void:
+	if in_cooldown: 
+		return
 	var dir := _get_input_direction()
 	if dir == Vector3.ZERO:
 		dir = Vector3(-1.0 if sprite.flip_h else 1.0, 0.0, 0.0)
 	velocity.x = dir.x * dash_impulse
 	velocity.z = dir.z * dash_impulse
+	start_cooldown()
 	print("Boar rams")
 
 func _on_slide_collision(collision: KinematicCollision3D, velocity_before_move: Vector3) -> void:

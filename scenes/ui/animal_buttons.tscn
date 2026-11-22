@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://deaog2hb50i0n"]
+
+[ext_resource type="Texture2D" uid="uid://bepa31gdxkgcw" path="res://assets/player/dzik2.png" id="1_xnfat"]
+
+[node name="Control" type="Control" unique_id=1471013613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=83306836]
+layout_mode = 0
+offset_top = 585.0
+offset_right = 1152.0
+offset_bottom = 635.0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=2059480071]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+icon = ExtResource("1_xnfat")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=944258452]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+icon = ExtResource("1_xnfat")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=727387445]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "1"
+icon = ExtResource("1_xnfat")
+alignment = 0
+icon_alignment = 2
+expand_icon = true

@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		var target = player.active_animal
 		if is_instance_valid(target) and is_hit(target):
 			already_hit = true
-			target_hit.emit(target)
+			player.take_dmg(1)
 
 	prev_r_in = r_in
 

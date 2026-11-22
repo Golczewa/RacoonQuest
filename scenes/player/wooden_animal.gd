@@ -24,6 +24,7 @@ const WOOD_REBOUND_ANGLE := deg_to_rad(4.0)
 
 @onready var sprite: AnimatedSprite3D = get_node("../AnimatedSprite3D")
 @onready var character: AnimalCharacter = get_parent().get_parent() as AnimalCharacter
+@onready var player:Player = get_parent().get_parent().get_parent()
 @onready var facing: Node3D = $Facing
 var poses: Array[Node3D] = []
 
@@ -115,7 +116,7 @@ func _update_facing(delta: float) -> void:
 	facing.position = resting_position + topple_pivot - topple * topple_pivot + Vector3.UP * hop
 
 func _update_topple(delta: float) -> Basis:
-	var target := 0.0 if character.is_active_player else 1.0
+	var target := 1.0 if player.dead else 0.0
 	var duration := STAND_DURATION if character.is_active_player else TOPPLE_DURATION
 	var previous_progress := topple_progress
 	if character.is_active_player or character.is_on_floor():
@@ -160,4 +161,3 @@ func _sync_visuals() -> void:
 		frame_index = 0
 	for index in range(poses.size()):
 		poses[index].visible = index == frame_index
-
