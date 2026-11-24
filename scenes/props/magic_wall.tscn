@@ -1,12 +1,22 @@
 [gd_scene format=3 uid="uid://b2rybtarsuty5"]
 
 [ext_resource type="Script" uid="uid://hi62eke66ms4" path="res://scenes/props/magic_wall.gd" id="1_mciv0"]
+[ext_resource type="Shader" uid="uid://8ai3w0gomomr" path="res://assets/shaders/magic_wall.gdshader" id="2_n21gv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ew6u"]
-transparency = 1
-albedo_color = Color(1, 0.3137255, 1, 0.36862746)
-emission = Color(1, 0.3137255, 1, 1)
-emission_energy_multiplier = 4.3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mciv0"]
+render_priority = 0
+shader = ExtResource("2_n21gv")
+shader_parameter/color_a = Color(0.6129961, 0.002403072, 0.8502913, 0.4509804)
+shader_parameter/color_b = Color(0.72, 0.48, 0.92, 0.45)
+shader_parameter/color_c = Color(0.80188024, 0.730595, 1, 0.4509804)
+shader_parameter/color_shift_speed = 0.25
+shader_parameter/use_three_colors = true
+shader_parameter/mist_scale = 4.70000007003564
+shader_parameter/mist_density = 1.11999997496632
+shader_parameter/softness = 0.99999997951066
+shader_parameter/drift_speed = Vector3(0.8, 0.4, 0.6)
+shader_parameter/edge_softness = 1.4
+shader_parameter/edge_fade_strength = 0.65
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jiq1j"]
 
@@ -17,11 +27,10 @@ size = Vector3(4.5141296, 2.043396, 0.39794922)
 script = ExtResource("1_mciv0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2099238204]
-transform = Transform3D(2.2120142, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_7ew6u")
+transform = Transform3D(2.2120142, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.009027243, 0, -0.001373291)
+material_override = SubResource("ShaderMaterial_mciv0")
 mesh = SubResource("PlaneMesh_jiq1j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256124664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050094604, 0.019195557, -0.015954614)
 shape = SubResource("BoxShape3D_jiq1j")
-disabled = true
