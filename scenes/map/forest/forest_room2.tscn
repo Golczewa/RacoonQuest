@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="6_hink8"]
 [ext_resource type="PackedScene" path="res://scenes/props/wooden_bush.tscn" id="7_wooden_bush"]
 [ext_resource type="PackedScene" path="res://scenes/props/felt_forest_floor.tscn" id="8_felt_floor"]
-[ext_resource type="Material" path="res://assets/materials/felt/forest_felt.tres" id="9_felt_material"]
-[ext_resource type="Curve3D" path="res://assets/materials/felt/forest_walk_path.tres" id="10_walk_path"]
+[ext_resource type="Material" uid="uid://1qbgqv4ns2ds" path="res://assets/materials/felt/forest_felt.tres" id="9_felt_material"]
+[ext_resource type="Curve3D" uid="uid://co8wqgey6llax" path="res://assets/materials/felt/forest_walk_path.tres" id="10_walk_path"]
 [ext_resource type="PackedScene" path="res://scenes/props/wooden_torch.tscn" id="11_torch"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evdi3"]
@@ -173,5 +173,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.443974, 0.42917633, 4.0633
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.148865, 0, 10.344147)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=828738072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.775452, 2.0454102, -3.9638062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.616558, 5.6807384, -3.9638062)
 shape = SubResource("BoxShape3D_gnusc")

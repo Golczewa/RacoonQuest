@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://620jrp4k4bt8" path="res://scenes/props/magic_ball.tscn" id="6_bpvy7"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="7_njtbm"]
 [ext_resource type="Script" uid="uid://cdkst6hryimas" path="res://scenes/props/magic_ball.gd" id="8_j35h0"]
+[ext_resource type="PackedScene" path="res://scenes/props/wooden_torch.tscn" id="10_l0fio"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_is4nn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -130,3 +131,11 @@ shape = SubResource("BoxShape3D_u4yaw")
 transform = Transform3D(5.453841, 0, 0, 0, 1, 0, 0, 0, 6.623417, -10.932308, 0, -3.621404)
 rand_seed = 10
 stuff_count = 15
+
+[node name="torches" type="Node3D" parent="." unique_id=438351188]
+
+[node name="TorchSpawnRight" parent="torches" unique_id=881687830 instance=ExtResource("10_l0fio")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 3.6784058, 0.018432617, 10.024714)
+
+[node name="TorchSpawnRight2" parent="torches" unique_id=120056419 instance=ExtResource("10_l0fio")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, -4.736669, 0.018432617, 10.120816)

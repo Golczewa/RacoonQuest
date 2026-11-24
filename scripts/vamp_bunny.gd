@@ -35,7 +35,7 @@ var hp := max_hp
 var can_shoot = true
 var shot_count := randi_range(4, 6)
 var is_ring_active = false
-
+var dead:=false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -44,7 +44,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_ring_active:
+	if is_ring_active or dead:
 		return
 	target = player.active_animal
 	raycast.look_at(target.global_transform.origin + Vector3(0, shoot_hight, 0), Vector3.UP)
@@ -83,12 +83,13 @@ func _on_shoot_timer_timeout() -> void:
 
 
 func take_dmg(dmg: int) -> void:
-	if is_ring_active:
+	if is_ring_active or dead:
 		return
 	hp -= dmg
 	if hp <= 0:
-		queue_free()
+		dead=true
 		correct.emit()
+		$Sprite3D.hide()
 	less_hp.emit()
 
 

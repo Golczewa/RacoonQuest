@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dias33wahrwl3"]
 
-[ext_resource type="Script" uid="uid://cpate6btamu6k" path="res://scenes/bunny_attack_ring.gd" id="1_6wrvj"]
+[ext_resource type="Script" uid="uid://cpate6btamu6k" path="res://scenes/enemies/bunny_attack_ring.gd" id="1_6wrvj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wrvj"]
 albedo_color = Color(0.53333336, 0, 0.05490196, 1)

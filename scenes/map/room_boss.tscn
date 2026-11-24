@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://i6j6oow2akog"]
 
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="1_fbgmi"]
-[ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemy_bunny.tscn" id="2_2gb3j"]
+[ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemies/enemy_bunny.tscn" id="2_2gb3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2gb3j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

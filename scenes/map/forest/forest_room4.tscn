@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds7qxng1piyxi" path="res://scenes/map/base_room.gd" id="1_s3qxq"]
 [ext_resource type="PackedScene" uid="uid://x7lovax3oney" path="res://scenes/props/floor_generator.tscn" id="2_br7om"]
-[ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemy_bunny.tscn" id="3_7eswh"]
+[ext_resource type="PackedScene" uid="uid://cif8558vwpp77" path="res://scenes/enemies/enemy_bunny.tscn" id="3_7eswh"]
 [ext_resource type="PackedScene" uid="uid://bbtb3304ca7dx" path="res://scenes/props/weed.tscn" id="3_edrg1"]
 [ext_resource type="PackedScene" uid="uid://b74gp2twy6ifa" path="res://scenes/props/bush.tscn" id="4_q71ke"]
 [ext_resource type="PackedScene" uid="uid://bjh4jpuly8d3d" path="res://scenes/props/small_weed.tscn" id="5_vv2mg"]
