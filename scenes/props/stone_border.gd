@@ -1,0 +1,37 @@
+extends Node3D
+
+@onready var stones_pack:PackedScene=preload("res://scenes/props/stone.tscn")
+
+@export var rand_seed:=2
+@export var cell_size := 3.5
+@export var padding := 0.9
+@export var yaw_variation_degrees := 18.0
+
+var generator:=RandomNumberGenerator.new()
+
+func _ready() -> void:
+	$MeshInstance3D.hide()
+	generator.seed=rand_seed
+	call_deferred("spawn_stones")
+
+func spawn_stones() -> void:
+	var scale_3d := global_transform.basis.get_scale()
+	var size := Vector2(scale_3d.x, scale_3d.z)
+
+	var cells := Vector2i(floori(size.x / cell_size), floori(size.y / cell_size))
+	var grid_start := (size - Vector2(cells) * cell_size) / 2.0 - size / 2.0
+
+	for cx in cells.x:
+		for cz in cells.y:
+			var meters := grid_start + Vector2(cx, cz) * cell_size
+			meters.x += cell_size * 0.5
+			meters.y += cell_size * 0.5
+			var local_point := Vector3(meters.x / size.x, 0.0, meters.y / size.y)
+			var random_scale = generator.randf_range(0.5, 1.5)  # losowa skala od 0.5 do 1.5 razy
+			
+
+			var stone: Node3D = stones_pack.instantiate()
+			stone.scale = Vector3.ONE * random_scale
+			get_parent().add_child(stone)
+			stone.global_position = to_global(local_point)
+			stone.rotation.y = deg_to_rad(generator.randf_range(-yaw_variation_degrees, yaw_variation_degrees))

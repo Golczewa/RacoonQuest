@@ -17,4 +17,3 @@ func _on_body_entered(body: Node3D) -> void:
 	if(body==player.active_animal):
 		player.take_dmg(dmg)
 		queue_free()
-

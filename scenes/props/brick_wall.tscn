@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://chs0wacsk7leo"]
+
+[ext_resource type="PackedScene" uid="uid://cog6dm7gp4wqx" path="res://assets/props/blender/brick_wall.blend" id="1_pd1mr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcm86"]
+size = Vector3(6.995323, 1.7119141, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1685394146]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2031394745]
+transform = Transform3D(1, 0, 0, 0, 1.5215104, 0, 0, 0, 0.6034663, 0.42361832, 1.1569026, 0)
+shape = SubResource("BoxShape3D_fcm86")
+
+[node name="brick_wall" parent="." unique_id=167997804 instance=ExtResource("1_pd1mr")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.559, -0.018, 0.101)

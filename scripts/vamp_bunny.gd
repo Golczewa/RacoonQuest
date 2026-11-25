@@ -65,9 +65,9 @@ func _physics_process(delta: float) -> void:
 				sprite.play("default")
 				direction = (target.global_transform.origin - global_transform.origin).normalized()
 			if direction.x > 0:
-				animated_sprite_3d.flip_h = true
-			elif direction.x < 0:
 				animated_sprite_3d.flip_h = false
+			elif direction.x < 0:
+				animated_sprite_3d.flip_h = true
 			var target_velocity = direction * speed
 			if shot_count == 0:
 				ring_attack()
