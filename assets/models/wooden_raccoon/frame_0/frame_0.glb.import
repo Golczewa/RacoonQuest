@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/frame_0.glb-6454061c24e8110b4017853b7b043157.
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true

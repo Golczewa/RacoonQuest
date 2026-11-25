@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ci7vupjmdfkw4"]
+
+[ext_resource type="Script" uid="uid://cn2m8e48owcru" path="res://scenes/props/stone_border.gd" id="1_0rbpr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcm86"]
+
+[node name="Node3D" type="Node3D" unique_id=275297000]
+script = ExtResource("1_0rbpr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1516100839]
+transform = Transform3D(2.3890293, 0, 0, 0, 0.18475625, 0, 0, 0, 2.4418273, 0, 0, 0)
+mesh = SubResource("BoxMesh_fcm86")
