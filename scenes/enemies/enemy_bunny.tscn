@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://krlaow8qnvx2" path="res://scripts/vamp_bunny.gd" id="1_x5a0y"]
 [ext_resource type="Texture2D" uid="uid://tn84gxpobo46" path="res://assets/bunny/bunny1.webp" id="2_3gclm"]
 [ext_resource type="Texture2D" uid="uid://bydsbqnourw5g" path="res://assets/bunny/bunny2.webp" id="3_meq5b"]
-[ext_resource type="PackedScene" uid="uid://bnb383pl8osub" path="res://assets/models/wooden_enemies/bunny/bunny.glb" id="4_3v1ci"]
 [ext_resource type="PackedScene" uid="uid://dias33wahrwl3" path="res://scenes/enemies/bunny_attack_ring.tscn" id="5_3gclm"]
+[ext_resource type="PackedScene" uid="uid://c83d4mtokrkpe" path="res://scenes/enemies/wooden_bunny.tscn" id="6_3v1ci"]
 [ext_resource type="PackedScene" uid="uid://cyw6hnqtq8g4" path="res://scenes/enemies/bunny_health.tscn" id="6_meq5b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spkyn"]
@@ -38,7 +38,7 @@ albedo_color = Color(0.53333336, 0, 0.05490196, 0.59607846)
 
 [sub_resource type="SphereMesh" id="SphereMesh_f5kge"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3v1ci"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_meq5b"]
 viewport_path = NodePath("SubViewport")
 
 [node name="vamp_bunny" type="CharacterBody3D" unique_id=1091209018 groups=["enemy"]]
@@ -72,15 +72,18 @@ visible = false
 material_override = SubResource("StandardMaterial3D_v3htl")
 mesh = SubResource("SphereMesh_f5kge")
 
-[node name="bunny" parent="." unique_id=1687135232 instance=ExtResource("4_3v1ci")]
-transform = Transform3D(-0.59999996, 0, -5.2453665e-08, 0, 0.59999996, 0, 5.2453665e-08, 0, -0.59999996, 0, 0, 0)
-
 [node name="MeshInstance3D" parent="." unique_id=556871384 instance=ExtResource("5_3gclm")]
+max_range = 25.0
+ring_width = 6.0
+speed = 4.0
 
 [node name="Sprite3D" parent="." unique_id=82122180 node_paths=PackedStringArray("vamp") instance=ExtResource("6_meq5b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6532907, 0)
-texture = SubResource("ViewportTexture_3v1ci")
+texture = SubResource("ViewportTexture_meq5b")
 vamp = NodePath("..")
+
+[node name="Node3D" parent="." unique_id=1488020218 instance=ExtResource("6_3v1ci")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="BoomTimer" to="." method="_on_boom_timer_timeout"]

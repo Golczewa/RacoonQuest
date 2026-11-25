@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c83d4mtokrkpe"]
+
+[ext_resource type="Script" uid="uid://dee7imggw1lfh" path="res://scenes/enemies/wooden_enemy.gd" id="1_xnk57"]
+[ext_resource type="PackedScene" uid="uid://bnb383pl8osub" path="res://assets/models/wooden_enemies/bunny/bunny.glb" id="2_wx1ru"]
+
+[node name="Node3D" type="Node3D" unique_id=1488020218]
+script = ExtResource("1_xnk57")
+
+[node name="Facing" type="Node3D" parent="." unique_id=887940483]
+
+[node name="Frame0" parent="Facing" unique_id=1687135232 instance=ExtResource("2_wx1ru")]

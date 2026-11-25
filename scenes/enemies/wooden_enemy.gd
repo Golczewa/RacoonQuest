@@ -116,9 +116,9 @@ func _update_facing(delta: float) -> void:
 
 func _update_topple(delta: float) -> Basis:
 	var target := 1.0 if character.dead else 0.0
-	var duration := STAND_DURATION if character.is_active_player else TOPPLE_DURATION
+	var duration := STAND_DURATION #if character.is_active_player else TOPPLE_DURATION
 	var previous_progress := topple_progress
-	if character.is_active_player or character.is_on_floor():
+	if character.is_on_floor():
 		topple_progress = move_toward(topple_progress, target, delta / duration)
 	rebound_remaining = maxf(0.0, rebound_remaining - delta)
 	if previous_progress < 1.0 and topple_progress == 1.0:

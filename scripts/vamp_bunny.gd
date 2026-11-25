@@ -90,6 +90,7 @@ func take_dmg(dmg: int) -> void:
 		dead=true
 		correct.emit()
 		$Sprite3D.hide()
+		$CollisionShape3D.disabled.set_deferred(true)
 	less_hp.emit()
 
 
