@@ -1,34 +1,37 @@
-extends Node3D
+class_name Player extends Node3D
 
 @export var starting_animal: AnimalCharacter
 @export var camera_offset: Vector3 = Vector3(0, 4, 6)
 @export var camera_smooth_speed: float = 8.0
 
 @onready var camera: Camera3D = $Camera3D
+@onready var animal_buttons:Array[Node] = $animal_buttons/HBoxContainer.get_children()
 
 const MAX_HEALTH:=5
 
 var active_animal: AnimalCharacter
-var health=MAX_HEALTH
+var health:=MAX_HEALTH
+var dead:=false
+var animals:Array[AnimalCharacter]
 
 func _ready() -> void:
+	var i:=0
 	for child in get_children():
 		if child is AnimalCharacter:
+			animals.append(child)
+			animal_buttons[i].pressed.connect(_possess_animal.bind(child))
+			animal_buttons[i].text=str(i+1)
+			if child.icon:
+				animal_buttons[i].icon=child.icon
 			child.is_active_player = false
 			if active_animal == null and starting_animal == null:
 				starting_animal = child
+			i+=1
 				
 	if starting_animal:
 		_possess_animal(starting_animal)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("switch_character") and active_animal != null:
-		var target_animal := active_animal.get_closest_swappable_animal()
-		if target_animal != null:
-			_possess_animal(target_animal)
-		else:
-			print("Come closer to another animal.")
-			
 	if active_animal != null:
 		var target_pos := active_animal.get_global_transform_interpolated().origin + camera_offset
 		var follow_weight := 1.0 - exp(-camera_smooth_speed * delta)
@@ -53,13 +56,20 @@ func _possess_animal(new_animal: AnimalCharacter) -> void:
 func get_boar()->AnimalCharacter:
 	return get_node_or_null("Boar") as AnimalCharacter
 
-func get_animals()->Array[Node]:
-	var animals:Array[Node]=[]
-	for child in get_children():
-		if child is AnimalCharacter:
-			animals.append(child)
+func get_animals()->Array[AnimalCharacter]:
 	return animals
 
 func take_dmg(dmg:int)->void:
 	health-=dmg
+	if health<0:
+		dead=true
 	print("player took ",dmg," damage")
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if active_animal == null:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		var index:int = event.keycode - KEY_1
+		if index >= 0 and index < animals.size():
+			_possess_animal(animals[index])

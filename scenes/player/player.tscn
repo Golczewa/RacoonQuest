@@ -1,9 +1,13 @@
-[gd_scene format=3 uid="uid://dr86h62q4qx7g"]
+[gd_scene format=3 uid="uid://qian7hc6n18x"]
 
 [ext_resource type="Script" uid="uid://c33b2i58y6brv" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://cgsx7rrl0tkky" path="res://scenes/player/racoon/racoon_adjusted.tscn" id="2_p47bc"]
+[ext_resource type="Texture2D" uid="uid://c2m5fmhhgq1r0" path="res://assets/player/szoppracz1.png" id="3_75vfm"]
 [ext_resource type="PackedScene" uid="uid://b5v4t5fgc21xx" path="res://scenes/player/boar/boar.tscn" id="4_0owmy"]
+[ext_resource type="Texture2D" uid="uid://beebrokwiyv5p" path="res://assets/dzik1.png" id="5_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://deaog2hb50i0n" path="res://scenes/ui/animal_buttons.tscn" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://buequic0uogo6" path="res://scenes/player/squirrel/squirrel.tscn" id="5_qek5x"]
+[ext_resource type="Texture2D" uid="uid://dcwsfrvmauw7v" path="res://assets/wiewiora1.png" id="7_h17s1"]
 
 [node name="Node3D" type="Node3D" unique_id=1370020864 node_paths=PackedStringArray("starting_animal") groups=["player"]]
 script = ExtResource("1_8afob")
@@ -16,7 +20,12 @@ current = true
 fov = 20.0
 
 [node name="Racoon" parent="." unique_id=1407618352 instance=ExtResource("2_p47bc")]
+icon = ExtResource("3_75vfm")
 
 [node name="Boar" parent="." unique_id=1012796646 instance=ExtResource("4_0owmy")]
+icon = ExtResource("5_5gtgg")
 
 [node name="Squirrel" parent="." unique_id=112536846 instance=ExtResource("5_qek5x")]
+icon = ExtResource("7_h17s1")
+
+[node name="animal_buttons" parent="." unique_id=1471013613 instance=ExtResource("5_p47bc")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0fdxknxb80m5"]
 
-[ext_resource type="PackedScene" uid="uid://dr86h62q4qx7g" path="res://scenes/player/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://qian7hc6n18x" path="res://scenes/player/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b0b46o5axbkvt" path="res://scenes/map/forest/forest.tscn" id="6_u5sy4"]
 
 [node name="Node3D" type="Node3D" unique_id=1575047435]

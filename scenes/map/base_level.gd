@@ -4,9 +4,9 @@ class_name Level
 
 @export var rooms:Array[PackedScene]
 
-var animals:Array[Node]
+var animals:Array[AnimalCharacter]
 var curr_room:Room
-var curr_room_num:=1
+var curr_room_num:=3
 
 func _ready() -> void:
 	animals=get_tree().get_first_node_in_group("player").get_animals()

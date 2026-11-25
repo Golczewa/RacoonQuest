@@ -42,3 +42,5 @@ shape = SubResource("CapsuleShape3D_3owqy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwapArea" unique_id=1344897689]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_dkbdu")
+
+[node name="Timer" type="Timer" parent="." unique_id=381494969]

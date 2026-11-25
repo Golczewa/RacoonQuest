@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://tn84gxpobo46" path="res://assets/bunny/bunny1.webp" id="2_m0swm"]
 [ext_resource type="Script" uid="uid://krlaow8qnvx2" path="res://scripts/vamp_bunny.gd" id="2_x8q4s"]
 [ext_resource type="Texture2D" uid="uid://bydsbqnourw5g" path="res://assets/bunny/bunny2.webp" id="3_3qpeg"]
-[ext_resource type="PackedScene" uid="uid://cyw6hnqtq8g4" path="res://scenes/bunny_health.tscn" id="3_6iwxn"]
-[ext_resource type="PackedScene" uid="uid://cdjrw48uvro2m" path="res://scenes/bunny_attack_ring.tscn" id="5_m0swm"]
+[ext_resource type="PackedScene" uid="uid://41i8i0dg0p6t" path="res://scenes/bunny_health.tscn" id="3_6iwxn"]
+[ext_resource type="PackedScene" uid="uid://dias33wahrwl3" path="res://scenes/bunny_attack_ring.tscn" id="5_m0swm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spkyn"]
 size = Vector3(0.8685913, 1.3085938, 1)
